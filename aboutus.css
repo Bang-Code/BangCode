@@ -1,0 +1,90 @@
+body{
+  background: gray;
+
+}
+
+#header{
+
+padding: 3%;
+}
+
+#headText{
+  margin-left: 31%;
+}
+
+#bio{
+background: blue;
+margin-left: 20%;
+margin-right: 20%;
+padding: 1%;
+}
+
+.name{
+  margin-left: 40%;
+  margin-bottom: 19%;
+}
+
+.pic{
+  background:yellow;
+  margin-right: 90%;
+  margin-top:-15%;
+  margin-bottom: 10%;
+
+
+}
+#rj{
+background: white;
+padding: 1%;
+margin-top: 1%;
+margin-left: 2%;
+margin-right: 2%;
+margin-bottom: 5%;
+}
+
+#rjp{
+  margin-left: 20%;
+  margin-top: -15%;
+
+}
+
+#ov{
+  background: white;
+  padding: 1%;
+  margin-top: 3%;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-bottom: 5%;
+}
+
+#ovp{
+  margin-left: 20%;
+  margin-top: -15%;
+}
+
+ #tr{
+   background: white;
+   padding: 1%;
+   margin-top: 3%;
+   margin-left: 2%;
+   margin-right: 2%;
+   margin-bottom: 5%;
+ }
+
+#trp{
+  margin-left: 20%;
+  margin-top: -15%;
+}
+
+ #cu{
+   background: white;
+   padding: 1%;
+   margin-top: 3%;
+   margin-left: 2%;
+   margin-right: 2%;
+   margin-bottom: 5%;
+ }
+
+ #cup{
+   margin-left: 20%;
+   margin-top: -15%;
+ }
