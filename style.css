@@ -48,9 +48,9 @@ html, body {
     border: none;
     outline: none;
     color: white;
-    padding: 20px;
+    padding-left: 20px;
     height: 60px;
-    width: 160px;
+    width: 75px;
     background-color: inherit;
 }
 
@@ -82,4 +82,14 @@ html, body {
 
 .show {
     display: block;
+}
+
+
+
+/* testing */
+#hamburgerMenu {
+    width: 35px;
+    height: 5px;
+    background-color: white;
+    margin: 6px 0;
 }

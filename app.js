@@ -1,20 +1,7 @@
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-}
+document.getElementById("dropbtn").addEventListener("mouseover", mouseOut);
+document.getElementById("dropbtn").addEventListener("mouseout", mouseOut);
 
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(e) {
-  if (!e.target.matches('.dropbtn')) {
-    var myDropdown = document.getElementById("myDropdown");
-      if (myDropdown.classList.contains('show')) {
-        myDropdown.classList.remove('show');
-      }
-  }
-}
-
-// hide the dropdown on MouseOut
+// show/hide the dropdown on mouse over/out
 document.getElementById("myDropdown").addEventListener("mouseout", mouseOut);
 function mouseOut() {
     console.log('hello');
