@@ -1,13 +1,3 @@
-document.getElementById("dropbtn").addEventListener("mouseover", mouseOut);
-document.getElementById("dropbtn").addEventListener("mouseout", mouseOut);
-
-// show/hide the dropdown on mouse over/out
-document.getElementById("myDropdown").addEventListener("mouseout", mouseOut);
-
-function mouseOut() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
 //things needed:
 //Each section in accordian contains link, video, add content box
 //need video and link constructors
