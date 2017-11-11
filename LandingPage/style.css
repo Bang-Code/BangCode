@@ -10,8 +10,8 @@ html, body {
     vertical-align: middle;
     line-height: 60px;
     justify-content: center;
-    position:absolute;
-    left:50%;
+    position: absolute;
+    left: 50%;
     transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
 }
@@ -127,7 +127,7 @@ html, body {
     position: fixed;
     bottom: 20px;
     right: 30px;
-    z-index: 99;
+    z-index: 102;
     border: none;
     outline: none;
     background-color: #e66a27 ;
@@ -151,7 +151,18 @@ html, body {
 
 
 
-  /* temporary items for prototying */
-  #tempDiv {
-      padding-top: 60px;
-  }
+/* TODO: move this into it's own style.css */
+/* Landing Page properties */
+.container {
+    padding-top: 100px;    
+    height: 1500px;
+    background-color: lightgrey;
+    text-align: center;
+}
+#one, #two, #three, #four {
+    margin: 20px;
+    width: 45%;
+    height: 45%;
+    display: inline-block;
+    background-color: cyan;
+}
