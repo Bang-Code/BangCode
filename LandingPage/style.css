@@ -4,15 +4,14 @@ html, body {
 }
 
 /* Nav Bar Title */
-.navbarTitle {
+#logo {
+    height: 60px;
+    width: 60px;
     text-align: center;
     color: white;
     vertical-align: middle;
     line-height: 60px;
     justify-content: center;
-    font-family: Courier;
-    font-size:40px;
-
     position:absolute;
     left:50%;
     transform: translateX(-50%);

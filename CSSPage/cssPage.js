@@ -32,6 +32,11 @@ function topFunction() {
   }
 }
 
+var img = document.getElementById('logo').addEventListener('click', logoClicked);
+function logoClicked() {
+  window.location = "../LandingPage/index.html";
+};
+
 var allLinks = [];
 function Link (name,source,description){
   this.name = name;

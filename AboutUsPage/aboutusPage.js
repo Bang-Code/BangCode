@@ -19,11 +19,6 @@ new Link('Color','https://www.w3schools.com/css/css_colors.asp','colour');
 new Link('box model','https://css3gen.com/css-box-model/','boxes');
 console.log(allLinks);
 
-
-
-
-
-
 // Navigation bar
 document.getElementById("dropbtn").addEventListener("mouseover", mouseOut);
 document.getElementById("dropbtn").addEventListener("mouseout", mouseOut);
@@ -34,6 +29,11 @@ document.getElementById("myDropdown").addEventListener("mouseout", mouseOut);
 function mouseOut() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
+
+var img = document.getElementById('logo').addEventListener('click', logoClicked);
+function logoClicked() {
+  window.location = "../LandingPage/index.html";
+};
 
 // Back To Top functionality
 window.onscroll = function() {
