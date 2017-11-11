@@ -118,3 +118,54 @@ function appendVideos() {
   }
 };
 appendVideos();
+
+var userAddedVideo = [];
+var userAddedLink = [];
+//function and push to videosArr
+//need an event listener for the user input
+
+function addFunction(event){
+  event.preventDefault();
+  var name = document.getElementById('name').value;
+  console.log('name' + name);
+  var source = document.getElementById('source').value;
+  console.log('source ' + source);
+  var description = document.getElementById('description').value;
+  console.log('description' + description);
+
+  var type = document.getElementById('yes-no').value;
+  console.log(type);
+  if(type === 'Yes'){
+    userAddedVideo.push(name);
+    userAddedVideo.push(source);
+    userAddedVideo.push(description);
+
+    var ulEl = document.getElementById('video-list');
+    var liAEl = document.createElement('li');
+    var aEl = document.createElement('a');
+    var liEl = document.createElement('li');
+    liEl.textContent = description;
+    aEl.textContent = name;
+    aEl.href = source;
+    liAEl.appendChild(aEl);
+    ulEl.appendChild(liAEl);
+    ulEl.appendChild(liEl);
+    // videosArr.push(userAddedResource);
+    // console.log('new array' + videosArr);
+  } else{
+    userAddedLink.push(name);
+    userAddedLink.push(source);
+    userAddedLink.push(description);
+    var ulEl = document.getElementById('link-list');
+    var liAEl = document.createElement('li');
+    var aEl = document.createElement('a');
+    var liEl = document.createElement('li');
+    liEl.textContent = description;
+    aEl.textContent = name;
+    aEl.href = source;
+    liAEl.appendChild(aEl);
+    ulEl.appendChild(liAEl);
+    ulEl.appendChild(liEl);
+  }
+}
+submitbutton.addEventListener('click', addFunction);
