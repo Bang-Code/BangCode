@@ -1,0 +1,13 @@
+/* Banner Image parallax */
+.parallax {
+    /* The image used */
+    background-image: url("../assets/light-bulb.jpg");
+
+    /* Set a specific height */
+    min-height: 600px;
+}
+
+.bannerTitle {
+  font-size: 120px;
+  line-height: 100px;
+}

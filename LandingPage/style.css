@@ -110,7 +110,6 @@ html, body {
     line-height: 60px;
     justify-content: center;
     font-size:200px;
-
     position:fixed;
     left:50%;
     transform: translateX(-50%);
