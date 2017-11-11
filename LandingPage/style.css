@@ -148,3 +148,10 @@ html, body {
     border-right: 5px solid transparent;
     border-bottom: 5px solid white;
   }
+
+
+
+  /* temporary items for prototying */
+  #tempDiv {
+      padding-top: 60px;
+  }
