@@ -31,8 +31,3 @@ function topFunction() {
     }, 40);
   }
 }
-
-var img = document.getElementById('logo').addEventListener('click', logoClicked);
-function logoClicked() {
-  window.location = "../LandingPage/index.html";
-};
