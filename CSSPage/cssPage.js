@@ -32,6 +32,7 @@ function topFunction() {
   }
 }
 
+// logo image in the NavBar
 var img = document.getElementById('logo').addEventListener('click', logoClicked);
 function logoClicked() {
   window.location = "../LandingPage/index.html";

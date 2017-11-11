@@ -10,8 +10,8 @@ html, body {
     vertical-align: middle;
     line-height: 60px;
     justify-content: center;
-    position:absolute;
-    left:50%;
+    position: absolute;
+    left: 50%;
     transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
 }
@@ -22,7 +22,11 @@ html, body {
     height: 60px;
     overflow: hidden;
     background-color: #333;
-    font-family: Arial;
+    font-family: 'Roboto Condensed', sans-serif;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    width: 100%;
 }
 
 .navbar a {
@@ -57,11 +61,11 @@ html, body {
 
 .dropdown-content {
     display: none;
-    position: absolute;
+    position: fixed;
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+    z-index: 101;
 }
 
 .dropdown-content a {
@@ -110,7 +114,6 @@ html, body {
     line-height: 60px;
     justify-content: center;
     font-size:200px;
-
     position:fixed;
     left:50%;
     transform: translateX(-50%);
@@ -124,7 +127,7 @@ html, body {
     position: fixed;
     bottom: 20px;
     right: 30px;
-    z-index: 99;
+    z-index: 102;
     border: none;
     outline: none;
     background-color: #e66a27 ;
@@ -145,3 +148,38 @@ html, body {
     border-right: 5px solid transparent;
     border-bottom: 5px solid white;
   }
+
+
+
+/* TODO: move this into it's own style.css */
+/* Landing Page properties */
+.container {
+    padding-top: 100px;
+    height: 1500px;
+    background-color: lightgrey;
+    text-align: center;
+}
+#one, #two, #three, #four {
+    margin: 20px;
+    width: 45%;
+    height: 45%;
+    display: inline-block;
+    background-color: cyan;
+    background-repeat: no-repeat;
+}
+/*CSS link*/
+#one {
+  background-image: url("../assets/light-bulb-portrate.jpg");
+}
+/*GIT link*/
+#two {
+  background-image: url("../assets/git-octocat-portrate.jpg");
+}
+/*HTML link*/
+#three {
+  background-image: url("../assets/jigsaw-puzzle-portrate.jpg");
+}
+/*PM link*/
+#four {
+  background-image: url("../assets/idea-board-portrate.jpg");
+}

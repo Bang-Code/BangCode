@@ -1,14 +1,3 @@
-// Navigation bar
-document.getElementById("dropbtn").addEventListener("mouseover", mouseOut);
-document.getElementById("dropbtn").addEventListener("mouseout", mouseOut);
-
-// show/hide the dropdown on mouse over/out
-document.getElementById("myDropdown").addEventListener("mouseout", mouseOut);
-
-function mouseOut() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
 // Back To Top functionality
 window.onscroll = function() {
   scrollFunction();
@@ -31,3 +20,30 @@ function topFunction() {
     }, 40);
   }
 }
+
+// logo image in the NavBar
+var img = document.getElementById('logo').addEventListener('click', logoClicked);
+function logoClicked() {
+  window.location = "../LandingPage/index.html";
+};
+
+// Landing page cells
+var cssCell = document.getElementById('one').addEventListener('click', cssClicked);
+function cssClicked() {
+  window.location = "../CSSPage/cssPage.html";
+};
+
+var gitCell = document.getElementById('two').addEventListener('click', gitClicked);
+function gitClicked() {
+  window.location = "../GitPage/gitPage.html";
+};
+
+var htmlCell = document.getElementById('three').addEventListener('click', htmlClicked);
+function htmlClicked() {
+  window.location = "../htmlPage/htmlPage.html";
+};
+
+var pmCell = document.getElementById('four').addEventListener('click', pmClicked);
+function pmClicked() {
+  window.location = "../ProjectManagementPage/pmPage.html";
+};

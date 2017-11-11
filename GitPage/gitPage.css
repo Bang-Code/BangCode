@@ -1,0 +1,8 @@
+/* Banner Image parallax */
+.parallax {
+    /* The image used */
+    background-image: url("../assets/git-logo.png");
+
+    /* Set a specific height */
+    min-height: 600px;
+}
