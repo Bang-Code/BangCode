@@ -4,22 +4,20 @@ html, body {
 }
 
 /* Nav Bar Title */
-.navbarTitle {
-    text-align: center;
-    color: white;
+#logo {
+    height: 60px;
+    width: 60px;
     vertical-align: middle;
     line-height: 60px;
     justify-content: center;
-    font-family: Courier;
-    font-size:40px;
-
     position:absolute;
     left:50%;
     transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
 }
 
-/* Nav Bar */
+/* Nav Bar properties*/
+
 .navbar {
     height: 60px;
     overflow: hidden;
@@ -83,8 +81,6 @@ html, body {
     display: block;
 }
 
-
-
 #hamburgerMenu {
     width: 35px;
     height: 5px;
@@ -92,7 +88,37 @@ html, body {
     margin: 6px 0;
 }
 
-/* Back To Top Button */
+
+/* Banner Image properties */
+.parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    background-color: rgba(0, 0, 0, 0.3);
+    background-blend-mode: overlay;
+}
+
+.bannerTitle {
+    font-family: 'Roboto Condensed', sans-serif;
+    position: fixed;
+    padding-top: 250px;
+    text-align: center;
+    color: white;
+    vertical-align: middle;
+    line-height: 60px;
+    justify-content: center;
+    font-size:200px;
+
+    position:fixed;
+    left:50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+}
+
+
+/* Back To Top Button properties */
 #myBtn {
     display: none;
     position: fixed;
