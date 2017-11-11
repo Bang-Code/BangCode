@@ -164,8 +164,8 @@ html, body {
     width: 45%;
     height: 45%;
     display: inline-block;
-    background-color: cyan;
     background-repeat: no-repeat;
+    cursor: pointer;
 }
 /*CSS link*/
 #one {
