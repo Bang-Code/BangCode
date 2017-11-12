@@ -148,38 +148,3 @@ html, body {
     border-right: 5px solid transparent;
     border-bottom: 5px solid white;
   }
-
-
-
-/* TODO: move this into it's own style.css */
-/* Landing Page properties */
-.container {
-    padding-top: 100px;
-    height: 1500px;
-    background-color: lightgrey;
-    text-align: center;
-}
-#one, #two, #three, #four {
-    margin: 20px;
-    width: 45%;
-    height: 45%;
-    display: inline-block;
-    background-repeat: no-repeat;
-    cursor: pointer;
-}
-/*CSS link*/
-#one {
-  background-image: url("../assets/light-bulb-portrate.jpg");
-}
-/*GIT link*/
-#two {
-  background-image: url("../assets/git-octocat-portrate.jpg");
-}
-/*HTML link*/
-#three {
-  background-image: url("../assets/jigsaw-puzzle-portrate.jpg");
-}
-/*PM link*/
-#four {
-  background-image: url("../assets/idea-board-portrate.jpg");
-}

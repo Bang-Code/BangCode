@@ -32,7 +32,7 @@ function mouseOut() {
 
 var img = document.getElementById('logo').addEventListener('click', logoClicked);
 function logoClicked() {
-  window.location = "../LandingPage/index.html";
+  window.location = "../Landing/index.html";
 };
 
 // Back To Top functionality

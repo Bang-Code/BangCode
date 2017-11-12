@@ -33,12 +33,14 @@ function topFunction() {
 }
 
 var img = document.getElementById('logo').addEventListener('click', logoClicked);
+
 function logoClicked() {
-  window.location = "../LandingPage/index.html";
+  window.location = "../Landing/index.html";
 };
 
 var allLinks = [];
-function Link (name,source,description){
+
+function Link(name, source, description) {
   this.name = name;
   this.source = source;
   this.description = description;
@@ -46,7 +48,8 @@ function Link (name,source,description){
   // console.log('test links');
 }
 
-var linksArr = [['HTML5 Forms','https://robertnyman.com/html5/forms/input-types.html','Interactive HTML'], ['Symbols/Punctuation','https://www.w3schools.com/charsets/ref_utf_punctuation.asp','short description'],['All things HTML and CSS','https://learn.shayhowe.com/','short description'],['Complete HTML cheat sheet','http://blog.creative-tim.com/tutorial/html-cheat-sheet-for-download/','A cheat sheet for HTML']
+var linksArr = [
+  ['JS Getting Started', 'http://videojs.com/getting-started/#customize', 'Video Series in JS'], ['FUN FUN FUNCTION', 'https://www.youtube.com/channel/UCO1cgjhGzsSYb1rsB4bFe4Q', 'Functional Programming'], ['REPL.it', 'Write Code https://repl.it/', 'code writer'], ['James Padolsey', 'https://j11y.io/', 'resource site'], ['Trello', 'https://trello.com/', 'project tracking tool'],
 ];
 
 function createLinks() {
@@ -61,7 +64,7 @@ createLinks();
 
 var allVideos = [];
 
-function Video (name,source,description){
+function Video(name, source, description) {
   this.name = name;
   this.source = source;
   this.description = description;
@@ -69,7 +72,7 @@ function Video (name,source,description){
   // console.log('video test');
 }
 
-var videosArr = [['Learn HTML in 12 Minutes', 'https://www.youtube.com/watch?v=bWPMSSsVdPk','Basic intro to HTML'],['HTML5 Tutorial for Beginners','https://www.youtube.com/watch?v=9gTw2EDkaDQ','6 part video for learning ']];
+var videosArr = [['Code School', 'https://www.codeschool.com/courses/discover-devtools', 'Discover DEV tools']];
 
 function createVideo() {
   for (var j = 0; j < videosArr.length; j++) {
@@ -83,7 +86,7 @@ createVideo();
 
 function appendLinks() {
   var ulEl = document.getElementById('link-list');
-  for(var i = 0; i < allLinks.length; i++) {
+  for (var i = 0; i < allLinks.length; i++) {
     // we're creating a link, list element
     var liAEl = document.createElement('li');
     var aEl = document.createElement('a');
@@ -102,7 +105,7 @@ appendLinks();
 
 function appendVideos() {
   var ulEl = document.getElementById('video-list');
-  for(var i = 0; i < allVideos.length; i++) {
+  for (var i = 0; i < allVideos.length; i++) {
     // we're creating a link, list element
     var liAEl = document.createElement('li');
     var aEl = document.createElement('a');
@@ -124,7 +127,7 @@ var userAddedLink = [];
 //function and push to videosArr
 //need an event listener for the user input
 
-function addFunction(event){
+function addFunction(event) {
   event.preventDefault();
   var name = document.getElementById('name').value;
   console.log('name' + name);
@@ -135,7 +138,7 @@ function addFunction(event){
 
   var type = document.getElementById('yes-no').value;
   console.log(type);
-  if(type === 'Yes'){
+  if (type === 'Yes') {
     userAddedVideo.push(name);
     userAddedVideo.push(source);
     userAddedVideo.push(description);
@@ -152,7 +155,7 @@ function addFunction(event){
     ulEl.appendChild(liEl);
     // videosArr.push(userAddedResource);
     // console.log('new array' + videosArr);
-  } else{
+  } else {
     userAddedLink.push(name);
     userAddedLink.push(source);
     userAddedLink.push(description);

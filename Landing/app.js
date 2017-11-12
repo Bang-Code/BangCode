@@ -24,26 +24,26 @@ function topFunction() {
 // logo image in the NavBar
 var img = document.getElementById('logo').addEventListener('click', logoClicked);
 function logoClicked() {
-  window.location = "../LandingPage/index.html";
+  window.location = "../Landing/index.html";
 };
 
 // Landing page cells
 var cssCell = document.getElementById('one').addEventListener('click', cssClicked);
 function cssClicked() {
-  window.location = "../CSSPage/cssPage.html";
+  window.location = "../CSS/css.html";
 };
 
 var gitCell = document.getElementById('two').addEventListener('click', gitClicked);
 function gitClicked() {
-  window.location = "../GitPage/gitPage.html";
+  window.location = "../Git/git.html";
 };
 
 var htmlCell = document.getElementById('three').addEventListener('click', htmlClicked);
 function htmlClicked() {
-  window.location = "../htmlPage/htmlPage.html";
+  window.location = "../HTML/html.html";
 };
 
 var pmCell = document.getElementById('four').addEventListener('click', pmClicked);
 function pmClicked() {
-  window.location = "../ProjectManagementPage/pmPage.html";
+  window.location = "../ProjectManagement/pm.html";
 };

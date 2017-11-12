@@ -35,7 +35,7 @@ function topFunction() {
 // logo image in the NavBar
 var img = document.getElementById('logo').addEventListener('click', logoClicked);
 function logoClicked() {
-  window.location = "../LandingPage/index.html";
+  window.location = "../Landing/index.html";
 };
 
 var allLinks = [];
@@ -47,8 +47,8 @@ function Link (name,source,description){
   // console.log('test links');
 }
 
-var linksArr = [['CSS Tricks','https://css-tricks.com/','css tricks'], ['layout','http://learnlayout.com/','layout'], ['Layout','https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Introduction','layout - mozilla'],['Zen Garden','http://www.csszengarden.com/','zen garden'],['Color','https://www.w3schools.com/css/css_colors.asp','colour'],['box model','https://css3gen.com/css-box-model/','boxes'],['color-hex-codes','http://www.color-hex.com','hex-codes'],['image/editor','www.gimp.org/','tool for editing images'],
-  ['image editor','pixlr.com/editor/','edit images'],['image editor','www.canva.com/','tool for editing images'],['image editor','pngtree.com/','editing tool']];
+var linksArr = [['CSS Tricks','https://css-tricks.com/','css tricks'], ['layout','http://learnlayout.com/','layout'], ['Layout','https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Introduction','layout - mozilla'],['Zen Garden','http://www.csszengarden.com/','zen garden'],['Color','https://www.w3schools.com/css/css_colors.asp','colour'],['box model','https://css3gen.com/css-box-model/','boxes'],['color-hex-codes','http://www.color-hex.com','hex-codes']
+];
 
 function createLinks() {
   for (var i = 0; i < linksArr.length; i++) {
