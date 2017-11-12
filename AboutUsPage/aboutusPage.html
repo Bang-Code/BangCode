@@ -4,13 +4,36 @@
     <meta charset="utf-8">
     <title>About Us</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
-    <link rel="stylesheet" href="aboutus.css">
+    <link rel="stylesheet" href="../LandingPage/style.css">
+    <link rel="stylesheet" href="aboutusPage.css">
   </head>
   <body>
-    <div id="header">
-     <h1 id="headText">About Us</h1>
+    <div>
+      <div class="navbar">
+          <div class="center">
+            <img id="logo" src="../assets/bang.png" alt="HOME">
+          </div>
+          <div class="dropdown">
+            <button class="dropbtn" id="dropbtn">
+              <!-- <i class="fa fa-caret-down"></i> -->
+              <div id="hamburgerMenu"></div>
+              <div id="hamburgerMenu"></div>
+              <div id="hamburgerMenu"></div>
+            </button>
+            <div class="dropdown-content" id="myDropdown">
+              <a href="../LandingPage/index.html">Home</a>
+              <a href="../CSSPage/cssPage.html">CSS</a>
+              <a href="../GitPage/gitPage.html">Git</a>
+              <a href="../htmlPage/htmlPage.html">HTML</a>
+              <a href="../ProjectManagementPage/pmPage.html">Project Management</a>
+           </div>
+          </div>
+      </div>
     </div>
 
+   <button onclick="topFunction()" id="myBtn">
+        <div class="arrow-up"></div>
+   </button>
 
     <section id="bio">
 
@@ -25,15 +48,15 @@
 </p>
       </div>
 
-      <div id ="ov">
+      <div id ="ovi">
   <h2 class="name">Ovidiu Parasca</h2>
   <div class="pic"><img src="BangCode/img/ovi_parasca_480.jpg" alt="">
     <p>head shot here</p>
   </div>
 
-        <p id="ovp">With over 6 years of developer experience primarily as an iOS Developer, Ovi Parasca wanted to become a full stack developer. With a number of published apps he decided to branch out and learn the wonders of web and server development. He still loves mobile development and wants to always be a mobile developer first, but having experience in multiple languages and platforms would better prepare anyone for almost any programming challenge, computer science is always growing and we as developers need to be cutting edge.
+        <p id="ovip">With over 6 years of developer experience primarily as an iOS Developer, Ovi wanted to become a full stack developer. With a number of published apps he decided to branch out and learn the wonders of web and server development. He still loves mobile development and wants to always be a mobile developer first, but having experience in multiple languages and platforms would better prepare anyone for almost any programming challenge, computer science is always growing and we as developers need to be cutting edge.
 
-        <a href="www.linkedin.com/in/ovidiu-parasca-baab8823/">Linkedin</a>
+        <a href="http://www.linkedin.com/in/ovidiu-parasca-baab8823/">Linkedin</a>
 
 </p>
       </div>
@@ -60,5 +83,6 @@
 
     </section>
 
+    <script src="aboutusPage.js"></script>
   </body>
 </html>

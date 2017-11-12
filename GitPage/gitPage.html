@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>!Code</title>
+        <link rel="stylesheet" href="../LandingPage/style.css">
+        <link rel="stylesheet" href="gitPage.css">
+    </head>
+    <body>
+      <div>
+        <div class="navbar">
+            <div class="center">
+              <img id="logo" src="../assets/bang.png" alt="HOME">
+            </div>
+            <div class="dropdown">
+              <button class="dropbtn" id="dropbtn">
+                <!-- <i class="fa fa-caret-down"></i> -->
+                <div id="hamburgerMenu"></div>
+                <div id="hamburgerMenu"></div>
+                <div id="hamburgerMenu"></div>
+              </button>
+              <div class="dropdown-content" id="myDropdown">
+                <a href="../LandingPage/index.html">Home</a>
+                <a href="../CSSPage/cssPage.html">CSS</a>
+                <a href="../htmlPage/htmlPage.html">HTML</a>
+                <a href="../ProjectManagementPage/pmPage.html">Project Management</a>
+                <a href="../AboutUsPage/aboutusPage.html">About Us</a>
+             </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Banner Image div -->
+      <div class="parallax">
+          <label class="bannerTitle">GIT</label>
+      </div>
+
+      <!-- TODO: remove before submitting -->
+      <!-- temp background, to test Back To Top functionality -->
+      <div style="background-color:lightgrey;padding:30px 30px 2500px; position: relative"></div>
+
+     <button onclick="topFunction()" id="myBtn">
+          <div class="arrow-up"></div>
+     </button>
+
+          <h2>Git</h2>
+          <div class="accordian-menu">
+
+
+          <div class="links"> Links</div>
+             <ul id="link-list">
+
+             </ul>
+
+
+
+
+          <div class="videos">  Videos</div>
+             <ul id="video-list">
+
+             </ul>
+
+
+      <div id="add link">
+         <form id="user-input">
+           <fieldset>
+             <legend>Add a resource</legend>
+             <label for="name">Name</label>
+             <input id="name"name = "name" type = "text" value = "">
+
+             <label for="source">URL</label>
+             <input id="source"name = "name" type = "text" value = "">
+
+
+             <p>Add a short description</p>
+             <textarea id="description"name="description" rows="8" cols="80"></textarea>
+             <p>Is this a video?</p>
+             <select id="yes-no"name="type">
+               <option value="Yes">Yes</option>
+               <option value="No">No</option>
+
+             </select>
+             <button id="submitbutton"type="submit"/>Add Resource</button>
+
+           </fieldset>
+
+         </form>
+      </div>
+
+          </div>
+
+
+           </div>
+        </div>
+
+
+
+     <script src="gitPage.js"></script>
+   </body>
+</html>
