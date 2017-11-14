@@ -36,6 +36,8 @@ body {
 }
 
 .pic {
+  padding-left: 20%;
+  padding-right: 20%;
   position: relative;
   vertical-align: middle;
   justify-content: center;
