@@ -189,22 +189,6 @@ function showBackToTopButton() {
   }
 }
 
-//accordion view of Resources
-var acc = document.getElementsByClassName("accordion");
-var i;
-
-for (i = 0; i < acc.length; i++) {
-  acc[i].onclick = function() {
-    this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-    if (panel.style.display === "block") {
-      panel.style.display = "none";
-    } else {
-      panel.style.display = "block";
-    }
-  }
-}
-
 // When the user clicks on the button, scroll to the top of the document
 function scrollToTop() {
   if (window.scrollY != 0) {
@@ -213,4 +197,20 @@ function scrollToTop() {
       scrollToTop();
     }, 40);
   }
+}
+
+//accordion view of Resources
+var acc = document.getElementsByClassName("accordion");
+var k;
+
+for (k = 0; k < acc.length; k++) {
+  acc[k].onclick = function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  };
 }

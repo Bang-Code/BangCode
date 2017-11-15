@@ -44,44 +44,50 @@
      </button>
 
      <div class="accordian-menu">
-        <h2>Project Management Links</h2>
-  
-        <div class="links"> Links</div>
+        <h2>HTML Links</h2>
+
+      <button class="accordion">Links</button>
+        <div class="panel" class="links">
+          <h3>Links</h3>
           <ul id="link-list">
           </ul>
-  
-        <div class="videos">  Videos</div>
+        </div>
+
+      <button class="accordion">Videos</button>
+        <div class="panel" class="videos">
+           <h3>Videos</h3>
             <ul id="video-list">
             </ul>
-  
-        <div id="add link">
-           <form id="user-input">
-             <fieldset>
-               <legend>Add a resource</legend>
-               <label for="name">Name</label>
-               <input id="name"name = "name" type = "text" value = "">
-  
-               <label for="source">URL</label>
-               <input id="source"name = "name" type = "text" value = "">
-  
-               <p>Add a short description</p>
-               <textarea id="description"name="description" rows="8" cols="80"></textarea>
-               <p>Is this a video?</p>
-               <select id="yes-no"name="type">
-                 <option value="Yes">Yes</option>
-                 <option value="No">No</option>
-  
-               </select>
-               <button id="submitbutton"type="submit"/>Add Resource</button>
-             </fieldset>
-           </form>
+          </div>
+
+      <button class="accordion">Add a resources</button>
+        <div class="pannel" id="add link">
+          <form id="user-input">
+            <fieldset>
+              <label for="name">Name</label>
+              <input id="name"name = "name" type = "text" value = "">
+
+              <label for="source">URL</label>
+              <input id="source"name = "name" type = "text" value = "">
+
+              <p>Add a short description</p>
+              <textarea id="description"name="description" rows="8" cols="80"></textarea>
+              <p>Is this a video?</p>
+              <select id="yes-no"name="type">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+
+              </select>
+              <button id="submitbutton"type="submit"/>Add Resource</button>
+            </fieldset>
+          </form>
         </div>
+
       </div>
       </div>
       </div>
-  
-  
+
+
        <script src="pm.js"></script>
      </body>
   </html>
-  

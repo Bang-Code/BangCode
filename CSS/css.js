@@ -46,11 +46,11 @@ createVideo();
 // Init the local storage variables
 if (storedLinksArr === null) {
   localStorage.setItem('Links-CSS', JSON.stringify(allLinks));
-  storedLinksArr = JSON.parse(localStorage.getItem('Links-CSS'));    
+  storedLinksArr = JSON.parse(localStorage.getItem('Links-CSS'));
 }
 if (storedVideosArr === null) {
   localStorage.setItem('Videos-CSS', JSON.stringify(allVideos));
-  storedVideosArr = JSON.parse(localStorage.getItem('Videos-CSS'));    
+  storedVideosArr = JSON.parse(localStorage.getItem('Videos-CSS'));
 }
 
 // populate our tables
@@ -85,15 +85,15 @@ function addFunction(event) {
   var isVideo = document.getElementById('yes-no').value;
 
   if (name && source && description) {
-    if (source.search('www.')) { 
+    if (source.search('www.')) {
       source = 'http://www.' + source;
     } else if (source.search('http://')) {
       source = 'http://' + source;
-    } 
+    }
 
     if (isVideo === 'Yes') {
       storedVideosArr.push(new Video(name, source, description));
-      localStorage.setItem('Videos-CSS', JSON.stringify(storedVideosArr));    
+      localStorage.setItem('Videos-CSS', JSON.stringify(storedVideosArr));
       linkType = 'video-list';
     } else {
       storedLinksArr.push(new Link(name, source, description));
@@ -106,7 +106,7 @@ function addFunction(event) {
     var liAEl = document.createElement('li');
     var aEl = document.createElement('a');
     var liEl = document.createElement('li');
-    
+
     liEl.textContent = description;
     aEl.textContent = name;
     aEl.href = source;
@@ -170,4 +170,20 @@ function scrollToTop() {
       scrollToTop();
     }, 40);
   }
+}
+
+//accordion view of Resources
+var acc = document.getElementsByClassName("accordion");
+var k;
+
+for (k = 0; k < acc.length; k++) {
+  acc[k].onclick = function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  };
 }

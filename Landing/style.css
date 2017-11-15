@@ -2,9 +2,9 @@ html, body {
     padding: 0;
     margin: 0;
   }
-  
+
   /* Nav Bar Title */
-  
+
   #logo {
     height: 60px;
     width: 60px;
@@ -27,9 +27,9 @@ html, body {
       transform: scale(1.3);
     transition: 0.4s ease;
   }
-  
+
   /* Nav Bar properties*/
-  
+
   .navbar {
     height: 60px;
     overflow: hidden;
@@ -40,7 +40,7 @@ html, body {
     top: 0;
     width: 100%;
   }
-  
+
   .navbar a {
     float: left;
     font-size: 16px;
@@ -49,12 +49,12 @@ html, body {
     padding: 14px 16px;
     text-decoration: none;
   }
-  
+
   .dropdown {
     float: left;
     overflow: hidden;
   }
-  
+
   .dropdown .dropbtn {
     cursor: pointer;
     font-size: 16px;
@@ -66,11 +66,11 @@ html, body {
     width: 75px;
     background-color: inherit;
   }
-  
+
   .navbar a:hover, .dropdown:hover .dropbtn {
     background-color: rgb(102, 102, 102);
   }
-  
+
   .dropdown-content {
     display: none;
     position: fixed;
@@ -79,7 +79,7 @@ html, body {
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 101;
   }
-  
+
   .dropdown-content a {
     float: none;
     color: black;
@@ -88,24 +88,24 @@ html, body {
     display: block;
     text-align: left;
   }
-  
+
   .dropdown-content a:hover {
     background-color: #ddd;
   }
-  
+
   .show {
     display: block;
   }
-  
+
   #hamburgerMenu {
     width: 35px;
     height: 5px;
     background-color: white;
     margin: 6px 0;
   }
-  
+
   /* Banner Image properties */
-  
+
   .parallax {
     background-attachment: fixed;
     background-position: center;
@@ -114,7 +114,7 @@ html, body {
     background-color: rgba(0, 0, 0, 0.3);
     background-blend-mode: overlay;
   }
-  
+
   .bannerTitle {
       font-family: 'Roboto Condensed', sans-serif;
       padding-top: 250px;
@@ -129,9 +129,9 @@ html, body {
       transform: translateX(-50%);
       -webkit-transform: translateX(-50%);
   }
-  
+
   /* Back To Top Button properties */
-  
+
   #myBtn {
       display: none;
       position: fixed;
@@ -146,11 +146,11 @@ html, body {
       padding: 15px;
       border-radius: 15px;
   }
-  
+
    #myBtn:hover {
       background-color: #333;
    }
-  
+
    .arrow-up {
       width: 0;
       height: 0;
@@ -158,7 +158,7 @@ html, body {
       border-right: 5px solid transparent;
       border-bottom: 5px solid white;
     }
-  
+
     .accordian-menu {
         margin-top: -20px;
         padding: 0px;
@@ -166,4 +166,3 @@ html, body {
         z-index: 10;
         position: relative;
     }
-  
