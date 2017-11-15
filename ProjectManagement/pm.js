@@ -75,7 +75,7 @@ function addElementsToTable(tableName, linksArray) {
 addElementsToTable('link-list', storedLinksArr);
 addElementsToTable('video-list', storedVideosArr);
 
-/ the User Input getting added to the array
+// the User Input getting added to the array
 function addFunction(event) {
   event.preventDefault();
 
