@@ -1,3 +1,7 @@
+@import url(https://fonts.googleapis.com/css?family=Permanent+Marker);
+@import url(https://fonts.googleapis.com/css?family=Yellowtail);
+@import url(https://fonts.googleapis.com/css?family=Passion+One);
+
 /* Landing Page properties */
 .container {
     padding-top: 100px;
@@ -14,10 +18,13 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
-
+    vertical-align: middle;
+    text-shadow: 3px 3px 3px black;        
 }
+
 /*CSS link*/
 #one {
+  transition: all .2s ease-in-out;  
   background-image: url("../assets/light-bulb-portrate.jpg");
 }
 /*GIT link*/
@@ -31,4 +38,57 @@
 /*PM link*/
 #four {
   background-image: url("../assets/idea-board-portrate.jpg");
+}
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2); 
+}
+
+.cssLabel {
+  color: white;  
+  top: 44%;
+  line-height: 100px;
+  font-family: cursive;
+  font-size: 180px;
+  font-family: 'Yellowtail', cursive;
+  position: relative;
+  transition: all .1s ease-in-out;  
+}
+
+#one:hover, #two:hover, #three:hover, #four:hover {
+  transition: all .2s ease-in-out;
+  transform: scale(1.05); 
+  box-shadow: 0 0 20px 5px #e66a27; 
+}
+
+#gitLabel {
+  color: white;  
+  top: 44%;
+  line-height: 100px;
+  font-family: cursive;
+  font-size: 180px;
+  font-family: 'Passion One', sans-serif;
+  position: relative;
+}
+
+#htmlLabel {
+  color: white;  
+  top: 44%;
+  line-height: 100px;
+  font-family: cursive;
+  font-size: 140px;
+  font-family: 'Roboto Condensed', sans-serif;
+  position: relative;
+}
+
+#pmLabel {
+  color: white;  
+  top: 38%;
+  line-height: 100px;
+  font-family: cursive;
+  font-size: 100px;
+  font-family: 'Permanent Marker', cursive;
+  position: relative;
 }
