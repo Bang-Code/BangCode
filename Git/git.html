@@ -1,91 +1,89 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>!Code</title>
-        <link rel="stylesheet" href="../Landing/style.css">
-        <link rel="stylesheet" href="gitStyle.css">
-    </head>
-    <body>
-      <div>
-        <div class="navbar">
-            <div class="center">
-              <img id="logo" src="../assets/bang.png" alt="HOME">
-            </div>
-            <div class="dropdown">
-              <button class="dropbtn" id="dropbtn">
+
+<head>
+  <meta charset="utf-8">
+  <title>!Code</title>
+  <link rel="stylesheet" href="../Landing/style.css">
+  <link rel="stylesheet" href="gitStyle.css">
+</head>
+
+<body>
+  <div>
+    <div class="navbar">
+      <div class="center">
+        <img id="logo" src="../assets/bang.png" alt="HOME">
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn" id="dropbtn">
                 <!-- <i class="fa fa-caret-down"></i> -->
                 <div id="hamburgerMenu"></div>
                 <div id="hamburgerMenu"></div>
                 <div id="hamburgerMenu"></div>
               </button>
-              <div class="dropdown-content" id="myDropdown">
-                <a href="../Landing/index.html">Home</a>
-                <a href="../CSS/css.html">CSS</a>
-                <a href="../HTML/html.html">HTML</a>
-                <a href="../ProjectManagement/pm.html">Project Management</a>
-                <a href="../AboutUs/aboutus.html">About Us</a>
-             </div>
-            </div>
+        <div class="dropdown-content" id="myDropdown">
+          <a href="../Landing/index.html">Home</a>
+          <a href="../CSS/css.html">CSS</a>
+          <a href="../HTML/html.html">HTML</a>
+          <a href="../ProjectManagement/pm.html">Project Management</a>
+          <a href="../AboutUs/aboutus.html">About Us</a>
         </div>
       </div>
+    </div>
+  </div>
 
-      <!-- Banner Image div -->
-      <div class="parallax">
-          <label class="bannerTitle">GIT</label>
-      </div>
+  <!-- Banner Image div -->
+  <div class="parallax">
+    <label class="bannerTitle">GIT</label>
+  </div>
 
-      <!-- Back to Top button -->
-     <button onclick="scrollToTop()" id="myBtn">
-          <div class="arrow-up"></div>
+  <!-- Back to Top button -->
+  <button onclick="scrollToTop()" id="myBtn">
+        <div class="arrow-up"></div>
      </button>
 
-     <div class="accordian-menu">
-        <h2>HTML Links</h2>
+  <button class="accordion">Links</button>
+  <div class="panel" class="links">
+    <ul id="link-list">
+    </ul>
+  </div>
 
-      <button class="accordion">Links</button>
-        <div class="panel" class="links">
-          <h3>Links</h3>
-          <ul id="link-list">
-          </ul>
-        </div>
+  <button class="accordion">Videos</button>
+  <div class="panel" class="videos">
+    <ul id="video-list">
+    </ul>
+  </div>
 
-      <button class="accordion">Videos</button>
-        <div class="panel" class="videos">
-           <h3>Videos</h3>
-            <ul id="video-list">
-            </ul>
-          </div>
+  <button class="accordion">Add a resources</button>
+  <div class="pannel" id="add link">
+    <form id="user-input">
+      <fieldset>
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" value="">
 
-      <button class="accordion">Add a resources</button>
-        <div class="pannel" id="add link">
-          <form id="user-input">
-            <fieldset>
-              <label for="name">Name</label>
-              <input id="name"name = "name" type = "text" value = "">
+        <label for="source">URL</label>
+        <input id="source" name="name" type="text" value="">
 
-              <label for="source">URL</label>
-              <input id="source"name = "name" type = "text" value = "">
-
-              <p>Add a short description</p>
-              <textarea id="description"name="description" rows="8" cols="80"></textarea>
-              <p>Is this a video?</p>
-              <select id="yes-no"name="type">
+        <p>Add a short description</p>
+        <textarea id="description" name="description" rows="8" cols="80"></textarea>
+        <p>Is this a video?</p>
+        <select id="yes-no" name="type">
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
 
               </select>
-              <button id="submitbutton"type="submit"/>Add Resource</button>
-            </fieldset>
-          </form>
-        </div>
+        <button id="submitbutton" type="submit" />Add Resource</button>
+      </fieldset>
+    </form>
+  </div>
 
-      </div>
+  </div>
 
-    </div>
-    </div>
+  </div>
+  </div>
 
 
-     <script src="git.js"></script>
-   </body>
+  <script src="git.js"></script>
+</body>
+
 </html>

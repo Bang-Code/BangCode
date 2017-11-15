@@ -18,14 +18,21 @@ button.accordion {
     outline: none;
     font-size: 15px;
     transition: 0.4s;
+    position: relative;
+    z-index: 10;
 }
 
 button.accordion.active, button.accordion:hover {
-    background-color: #ccc;
+  background-color: #ccc;
 }
 
 div.panel {
   padding: 0 18px;
   display: none;
   background-color: white;
+}
+
+fieldset {
+  position: relative;
+  z-index: 10;
 }
