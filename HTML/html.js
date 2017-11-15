@@ -1,17 +1,24 @@
 // link variables
 var allLinks = [];
-var linksArr = [['HTML5 Forms','https://robertnyman.com/html5/forms/input-types.html','Interactive HTML'], ['Symbols/Punctuation','https://www.w3schools.com/charsets/ref_utf_punctuation.asp','short description'],['All things HTML and CSS','https://learn.shayhowe.com/','short description'],['Complete HTML cheat sheet','http://blog.creative-tim.com/tutorial/html-cheat-sheet-for-download/','A cheat sheet for HTML']
+var linksArr = [
+  ['HTML5 Forms', 'https://robertnyman.com/html5/forms/input-types.html', 'Interactive HTML'],
+  ['Symbols/Punctuation', 'https://www.w3schools.com/charsets/ref_utf_punctuation.asp', 'short description'],
+  ['All things HTML and CSS', 'https://learn.shayhowe.com/', 'short description'],
+  ['Complete HTML cheat sheet', 'http://blog.creative-tim.com/tutorial/html-cheat-sheet-for-download/', 'A cheat sheet for HTML']
 ];
 // video variables
 var allVideos = [];
-var videosArr = [['Learn HTML in 12 Minutes', 'https://www.youtube.com/watch?v=bWPMSSsVdPk','Basic intro to HTML'],['HTML5 Tutorial for Beginners','https://www.youtube.com/watch?v=9gTw2EDkaDQ','6 part video for learning ']];
+var videosArr = [
+  ['Learn HTML in 12 Minutes', 'https://www.youtube.com/watch?v=bWPMSSsVdPk', 'Basic intro to HTML'],
+  ['HTML5 Tutorial for Beginners', 'https://www.youtube.com/watch?v=9gTw2EDkaDQ', '6 part video for learning ']
+];
 
 // Local Storage variables
 var storedLinksArr = JSON.parse(localStorage.getItem('Links-html'));
 var storedVideosArr = JSON.parse(localStorage.getItem('Videos-html'));
 
 // Constructor function to create a Link object
-function Link(name,source,description){
+function Link(name, source, description) {
   this.name = name;
   this.source = source;
   this.description = description;
@@ -19,13 +26,12 @@ function Link(name,source,description){
 }
 
 // Constructor function to create a Link object
-function Video(name,source,description){
+function Video(name, source, description) {
   this.name = name;
   this.source = source;
   this.description = description;
   allVideos.push(this);
 }
-
 
 // populate our links array object
 function createLinks() {
@@ -46,11 +52,11 @@ createVideo();
 // Init the local storage variables
 if (storedLinksArr === null) {
   localStorage.setItem('Links-html', JSON.stringify(allLinks));
-  storedLinksArr = JSON.parse(localStorage.getItem('Links-html'));    
+  storedLinksArr = JSON.parse(localStorage.getItem('Links-html'));
 }
 if (storedVideosArr === null) {
   localStorage.setItem('Videos-html', JSON.stringify(allVideos));
-  storedVideosArr = JSON.parse(localStorage.getItem('Videos-html'));    
+  storedVideosArr = JSON.parse(localStorage.getItem('Videos-html'));
 }
 
 // populate our tables
@@ -98,7 +104,6 @@ addElementsToTable('video-list', storedVideosArr);
 // the User Input getting added to the array
 function addFunction(event) {
   event.preventDefault();
-
   var name = document.getElementById('name').value;
   var source = document.getElementById('source').value;
   var description = document.getElementById('description').value;
@@ -106,15 +111,15 @@ function addFunction(event) {
   var isVideo = document.getElementById('yes-no').value;
 
   if (name && source && description) {
-    if (source.search('www.')) { 
+    if (source.search('www.')) {
       source = 'http://www.' + source;
     } else if (source.search('http://')) {
       source = 'http://' + source;
-    } 
+    }
 
     if (isVideo === 'Yes') {
       storedVideosArr.push(new Video(name, source, description));
-      localStorage.setItem('Videos-html', JSON.stringify(storedVideosArr));    
+      localStorage.setItem('Videos-html', JSON.stringify(storedVideosArr));
       linkType = 'video-list';
     } else {
       storedLinksArr.push(new Link(name, source, description));
@@ -127,7 +132,7 @@ function addFunction(event) {
     var liAEl = document.createElement('li');
     var aEl = document.createElement('a');
     var liEl = document.createElement('li');
-    
+
     liEl.textContent = description;
     aEl.textContent = name;
     aEl.href = source;
@@ -138,7 +143,7 @@ function addFunction(event) {
 
     // clear the fields
     resetFields();
-    
+
   } else {
     // there is a missing field
     alert('Please fill all fields.');
@@ -155,7 +160,6 @@ function resetFields() {
   description.value = '';
 }
 
-
 // Navigation bar / drop down menu
 document.getElementById("dropbtn").addEventListener("mouseover", toggleDropDown);
 document.getElementById("dropbtn").addEventListener("mouseout", toggleDropDown);
@@ -167,6 +171,7 @@ function toggleDropDown() {
 
 // logo image in the NavBar
 var img = document.getElementById('logo').addEventListener('click', returnToHomePage);
+
 function returnToHomePage() {
   window.location = "../Landing/index.html";
 };
@@ -175,11 +180,28 @@ function returnToHomePage() {
 window.onscroll = function() {
   showBackToTopButton();
 };
+
 function showBackToTopButton() {
   if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
     document.getElementById("myBtn").style.display = "block";
   } else {
     document.getElementById("myBtn").style.display = "none";
+  }
+}
+
+//accordion view of Resources
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].onclick = function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
   }
 }
 
