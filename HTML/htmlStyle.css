@@ -1,7 +1,7 @@
 /* Banner Image parallax */
 .parallax {
     /* The image used */
-    background-image: url("../assets/pull-back.jpg");
+    background-image: url("../assets/html-banner.jpg");
 
     /* Set a specific height */
     min-height: 600px;
