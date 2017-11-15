@@ -1,62 +1,66 @@
-body{
-  padding: 0;
+body {
+  padding: 20px;
   margin: 0;
-  background:#d9d9d9;
+  background: #d9d9d9;
   font-family: 'Roboto Condensed', sans-serif;
 }
 
-#header{
+#header {
   height: 60px;
-      overflow: hidden;
-      background-color: #333;
-      font-family: Arial;
-      font
+  overflow: hidden;
+  background-color: #333;
+  font-family: Arial;
 }
 
-#headText{
-  color:white;
+#headText {
+  color: white;
   margin-left: 31%;
 }
 
-#bio{
-background: #d9d9d9;
-margin-left: 20%;
-margin-right: 20%;
-padding: 1%;
+#bio {
+  background: #d9d9d9;
+  margin-left: 20%;
+  margin-right: 20%;
+  padding: 2%;
 }
 
-.name{
-
+.name {
   margin-left: 40%;
   margin-bottom: 19%;
 }
 
-.pic{
+.name p {
+  position: relative;
+  float: left;
+  padding: 15px;
+}
 
-  background:yellow;
+.pic {
+  padding-left: 20%;
+  padding-right: 20%;
+  position: relative;
+  vertical-align: middle;
+  justify-content: center;
   margin-right: 90%;
-  margin-top:-15%;
-  margin-bottom: 10%;
-
-
-}
-#rj{
-background: white;
-padding: 1%;
-margin-top: 1%;
-margin-left: 2%;
-margin-right: 2%;
-margin-bottom: 5%;
+  margin-top: -15%;
+  margin-bottom: 15%;
 }
 
-#rjp{
+#rj {
+  background: white;
+  padding: 1%;
+  margin-top: 1%;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-bottom: 5%;
+}
 
+#rjp {
   margin-left: 20%;
   margin-top: -15%;
-
 }
 
-#ovi{
+#ovi {
   background: white;
   padding: 1%;
   margin-top: 3%;
@@ -65,35 +69,35 @@ margin-bottom: 5%;
   margin-bottom: 5%;
 }
 
-#ovip{
+#ovip {
   margin-left: 20%;
   margin-top: -15%;
 }
 
- #tr{
-   background: white;
-   padding: 1%;
-   margin-top: 3%;
-   margin-left: 2%;
-   margin-right: 2%;
-   margin-bottom: 5%;
- }
+#tr {
+  background: white;
+  padding: 1%;
+  margin-top: 3%;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-bottom: 5%;
+}
 
-#trp{
+#trp {
   margin-left: 20%;
   margin-top: -15%;
 }
 
- #cu{
-   background: white;
-   padding: 1%;
-   margin-top: 3%;
-   margin-left: 2%;
-   margin-right: 2%;
-   margin-bottom: 5%;
- }
+#cu {
+  background: white;
+  padding: 1%;
+  margin-top: 3%;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-bottom: 5%;
+}
 
- #cup{
-   margin-left: 20%;
-   margin-top: -15%;
- }
+#cup {
+  margin-left: 20%;
+  margin-top: -15%;
+}
