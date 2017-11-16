@@ -1,5 +1,5 @@
 body {
-  padding: 20px;
+  padding: 2%;
   margin: 0;
   background: #d9d9d9;
   font-family: 'Roboto Condensed', sans-serif;
@@ -10,6 +10,7 @@ body {
   overflow: hidden;
   background-color: #333;
   font-family: Arial;
+  margin-bottom: 10%;
 }
 
 #headText {
@@ -25,79 +26,127 @@ body {
 }
 
 .name {
+  background-color:white;
   margin-left: 40%;
   margin-bottom: 19%;
 }
 
-.name p {
-  position: relative;
-  float: left;
-  padding: 15px;
-}
 
-.pic {
-  padding-left: 20%;
-  padding-right: 20%;
-  position: relative;
-  vertical-align: middle;
-  justify-content: center;
-  margin-right: 90%;
-  margin-top: -15%;
-  margin-bottom: 15%;
-}
 
-#rj {
+
+
+#rj{
   background: white;
-  padding: 1%;
-  margin-top: 1%;
+  padding-bottom: 2%;
+  padding-left: 1%;
+  padding-top: 3%;
+  margin-top: 5%;
   margin-left: 2%;
   margin-right: 2%;
   margin-bottom: 5%;
+
 }
 
-#rjp {
-  margin-left: 20%;
-  margin-top: -15%;
+#rjp{
+  padding:3%;
+  background-color:white;
+  margin-left: 30%;
+  margin-top:-39%;
+  font-size: 18px;
+  line-height: 150%;
 }
+
+#rjpic{
+  margin-right: 70%;
+  margin-bottom: 5%;
+  margin-top: -20%;
+}
+
+
 
 #ovi {
   background: white;
-  padding: 1%;
+  padding-right: 10%;
+  padding-top: 1%;
+  padding-bottom:1%;
   margin-top: 3%;
   margin-left: 2%;
-  margin-right: 2%;
+  margin-right: 1%;
   margin-bottom: 5%;
 }
 
-#ovip {
-  margin-left: 20%;
-  margin-top: -15%;
+#ovi_para{
+  padding:1%;
+  background-color:white;
+  margin-left: 38%;
+  margin-right: -5%;
+  margin-top:-50%;
+  font-size: 18px;
+  line-height: 150%;
+
 }
 
-#tr {
+#ovipic{
+  padding-left: 2%;
+  padding-bottom: 5%;
+  margin-right: 70%;
+  margin-bottom: -3%;
+  margin-top: -11%;
+}
+
+#td {
   background: white;
-  padding: 1%;
+  padding-bottom: 4%;
+  padding-top: 1%;
   margin-top: 3%;
   margin-left: 2%;
   margin-right: 2%;
   margin-bottom: 5%;
 }
 
-#trp {
-  margin-left: 20%;
-  margin-top: -15%;
+#tdpic{
+  padding-left: 2%;
+  padding-bottom: 5%;
+  padding-top:-64%;
+  margin-right: 70%;
+  margin-bottom: 3%;
+  margin-top: -20%;
+
 }
 
-#cu {
+#tdp{
+  padding:2%;
+  background-color:white;
+  margin-left: 34%;
+  margin-top:-38%;
+  font-size: 18px;
+  line-height: 150%;
+}
+
+#tc{
   background: white;
-  padding: 1%;
+  padding-bottom: 2%;
+  padding-top: 1%;
   margin-top: 3%;
   margin-left: 2%;
   margin-right: 2%;
   margin-bottom: 5%;
+
+}
+#tcpic{
+  padding-left: 2%;
+  padding-bottom: 5%;
+
+  margin-right: 70%;
+  margin-bottom: 3%;
+  margin-top: -25%;
 }
 
-#cup {
-  margin-left: 20%;
-  margin-top: -15%;
+#tcp{
+  padding-top:2%;
+  background-color:white;
+  margin-left: 34%;
+  margin-top:-33%;
+  font-size: 18px;
+  line-height: 150%;
 }
