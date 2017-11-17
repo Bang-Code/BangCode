@@ -1,54 +1,65 @@
 // link variables
 var allLinks = [];
-var linksArr = [['Git-Cheat', 'www.git-tower.com/learn/','Quick reference for git operations'],[
-  'git ignore','www.gitignore.io/','How to use the git ignore option'],['Mark Down','guides.github.com/features/mastering-markdown/','markdown fundamentals']];
+var linksArr = [
+  ['Git-Cheat', 'www.git-tower.com/learn/','Quick reference for git operations', 13, false],
+  ['git ignore','www.gitignore.io/','How to use the git ignore option', 2, false],
+  ['Mark Down','guides.github.com/features/mastering-markdown/','markdown fundamentals', 4, false]
+];
 // video variables
 var allVideos = [];
-var videosArr = [['video', 'https://www.youtube.com/watch?v=qKoajPPWpmo','css-video'],['Css crash course','https://www.youtube.com/watch?v=yfoY53QXEnI','crash course for begginers']];
+var videosArr = [
+  ['video', 'https://www.youtube.com/watch?v=qKoajPPWpmo','css-video', 23, false],
+  ['Css crash course','https://www.youtube.com/watch?v=yfoY53QXEnI','crash course for begginers', 12, false]
+];
 
 // Local Storage variables
+// localStorage.removeItem('Links-Git');
+// localStorage.removeItem('Videos-Git');
 var storedLinksArr = JSON.parse(localStorage.getItem('Links-Git'));
 var storedVideosArr = JSON.parse(localStorage.getItem('Videos-Git'));
 
 // Constructor function to create a Link object
-function Link(name,source,description){
+function Link(name, source, description, votes, isVoted) {
   this.name = name;
   this.source = source;
   this.description = description;
+  this.votes = votes;
+  this.isVotes = isVoted;
   allLinks.push(this);
 }
 
-// Constructor function to create a Link object
-function Video(name,source,description){
+// Constructor function to create a Video object
+function Video(name, source, description, votes, isVoted) {
   this.name = name;
   this.source = source;
   this.description = description;
+  this.votes = votes;
+  this.isVotes = isVoted;  
   allVideos.push(this);
 }
-
 
 // populate our links array object
 function createLinks() {
   for (var i = 0; i < linksArr.length; i++) {
-    new Link(linksArr[i][0], linksArr[i][1], linksArr[i][2]);
+    new Link(linksArr[i][0], linksArr[i][1], linksArr[i][2], linksArr[i][3], linksArr[i][4]);
   }
 }
-createLinks();
 
 // populate our videos array object
 function createVideo() {
   for (var j = 0; j < videosArr.length; j++) {
-    new Video(videosArr[j][0], videosArr[j][1], videosArr[j][2]);
+    new Video(videosArr[j][0], videosArr[j][1], videosArr[j][2], videosArr[j][3], videosArr[j][4]);
   }
 };
-createVideo();
 
 // Init the local storage variables
 if (storedLinksArr === null) {
+  createLinks();
   localStorage.setItem('Links-Git', JSON.stringify(allLinks));
   storedLinksArr = JSON.parse(localStorage.getItem('Links-Git'));
 }
 if (storedVideosArr === null) {
+  createVideo();  
   localStorage.setItem('Videos-Git', JSON.stringify(allVideos));
   storedVideosArr = JSON.parse(localStorage.getItem('Videos-Git'));
 }
@@ -60,30 +71,32 @@ function addElementsToTable(tableName, linksArray) {
     // we're creating a link, list element
     var liAEl = document.createElement('li');
     var aEl = document.createElement('a');
-    aEl.textContent = linksArray[i]['name'];
+    aEl.textContent = linksArray[i].name;
     aEl.href = (linksArray[i]['source']);
     liAEl.appendChild(aEl);
-    ulEl.appendChild(liAEl);
 
-    // we're creating a regular element
-    var liEl = document.createElement('li');
-    liEl.textContent = linksArray[i]['description'];
-    ulEl.appendChild(liEl);
-  }
-};
-addElementsToTable('link-list', storedLinksArr);
-addElementsToTable('video-list', storedVideosArr);
+    var thumbsImg = document.createElement('img');
+    if (linksArray[i].isVoted) {
+      thumbsImg.src = '../assets/thumbs-up.png';
+    } else {
+      thumbsImg.src = '../assets/thumbs-upgrey.png';      
+    }
+    thumbsImg.setAttribute('id', linksArray[i].name);
+    thumbsImg.addEventListener('mousedown', toggleVotes);
+    thumbsImg.classList.add('vote');
+    liAEl.appendChild(thumbsImg);
 
-// populate our tables
-function addElementsToTable(tableName, linksArray) {
-  var ulEl = document.getElementById(tableName);
-  for (var i = 0; i < linksArray.length; i++) {
-    // we're creating a link, list element
-    var liAEl = document.createElement('li');
-    var aEl = document.createElement('a');
-    aEl.textContent = linksArray[i]['name'];
-    aEl.href = (linksArray[i]['source']);
-    liAEl.appendChild(aEl);
+    var votesLbl = document.createElement('label');
+    votesLbl.setAttribute('id', linksArray[i]['source']);
+    votesLbl.classList.add('votesLbl');
+    var votes = linksArray[i]['votes'];
+    if (votes === 1) { 
+      votesLbl.innerHTML = votes + ' like';        
+    } else {
+      votesLbl.innerHTML = votes + ' likes';
+    }
+    
+    liAEl.appendChild(votesLbl);
     ulEl.appendChild(liAEl);
 
     // we're creating a regular element
@@ -98,7 +111,6 @@ addElementsToTable('video-list', storedVideosArr);
 // the User Input getting added to the array
 function addFunction(event) {
   event.preventDefault();
-
   var name = document.getElementById('name').value;
   var source = document.getElementById('source').value;
   var description = document.getElementById('description').value;
@@ -113,11 +125,11 @@ function addFunction(event) {
     }
 
     if (isVideo === 'Yes') {
-      storedVideosArr.push(new Video(name, source, description));
+      storedVideosArr.push(new Video(name, source, description, 0, false));
       localStorage.setItem('Videos-Git', JSON.stringify(storedVideosArr));
       linkType = 'video-list';
     } else {
-      storedLinksArr.push(new Link(name, source, description));
+      storedLinksArr.push(new Link(name, source, description, 0, false));
       localStorage.setItem('Links-Git', JSON.stringify(storedLinksArr));
       linkType = 'link-list';
     }
@@ -133,6 +145,20 @@ function addFunction(event) {
     aEl.href = source;
 
     liAEl.appendChild(aEl);
+
+    var thumbsImg = document.createElement('img');
+    thumbsImg.src = '../assets/thumbs-upgrey.png';      
+    thumbsImg.setAttribute('id', name);
+    thumbsImg.addEventListener('mousedown', toggleVotes);
+    thumbsImg.classList.add('vote');
+    liAEl.appendChild(thumbsImg);
+
+    var votesLbl = document.createElement('label');
+    votesLbl.setAttribute('id', source);
+    votesLbl.classList.add('votesLbl');
+    votesLbl.innerHTML = '0 likes';
+    liAEl.appendChild(votesLbl);
+
     ulEl.appendChild(liAEl);
     ulEl.appendChild(liEl);
 
@@ -155,7 +181,6 @@ function resetFields() {
   description.value = '';
 }
 
-
 // Navigation bar / drop down menu
 document.getElementById("dropbtn").addEventListener("mouseover", toggleDropDown);
 document.getElementById("dropbtn").addEventListener("mouseout", toggleDropDown);
@@ -167,6 +192,7 @@ function toggleDropDown() {
 
 // logo image in the NavBar
 var img = document.getElementById('logo').addEventListener('click', returnToHomePage);
+
 function returnToHomePage() {
   window.location = "../Landing/index.html";
 };
@@ -175,6 +201,7 @@ function returnToHomePage() {
 window.onscroll = function() {
   showBackToTopButton();
 };
+
 function showBackToTopButton() {
   if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
     document.getElementById("myBtn").style.display = "block";
@@ -207,4 +234,62 @@ for (k = 0; k < acc.length; k++) {
       panel.style.display = "block";
     }
   };
+}
+
+
+
+// testing
+function toggleVotes(event) {
+  for (var i = 0; i < storedLinksArr.length; i++) {
+    if (storedLinksArr[i].name === event.target.id) {
+      var votes = storedLinksArr[i].votes;
+      var thumbsImg = document.getElementById(storedLinksArr[i].name);
+      if (thumbsImg.src.search("assets/thumbs-up.png") !== -1 && storedLinksArr[i].isVoted === true) {
+        thumbsImg.src = '../assets/thumbs-upgrey.png';
+        votes--;
+        storedLinksArr[i].isVoted = false;        
+      } else {
+        thumbsImg.src = '../assets/thumbs-up.png';  
+        votes++;        
+        storedLinksArr[i].isVoted = true;        
+      }
+
+      storedLinksArr[i].votes = votes;
+      var votesLbl = document.getElementById(storedLinksArr[i].source);
+      if (votes === 1) { 
+        votesLbl.innerHTML = votes + ' like';  
+      } else {
+        votesLbl.innerHTML = votes + ' likes';
+      }
+
+      localStorage.setItem('Links-Git', JSON.stringify(storedLinksArr));      
+      break;
+    }
+  }
+  for (var i = 0; i < storedVideosArr.length; i++) {
+    if (storedVideosArr[i].name === event.target.id) {
+      var votes = storedVideosArr[i].votes;
+      var thumbsImg = document.getElementById(storedVideosArr[i].name);
+      if (thumbsImg.src.search("assets/thumbs-up.png") !== -1 && storedVideosArr[i].isVoted === true) {
+        thumbsImg.src = '../assets/thumbs-upgrey.png';
+        votes--;
+        storedVideosArr[i].isVoted = false;        
+      } else {
+        thumbsImg.src = '../assets/thumbs-up.png';  
+        votes++;        
+        storedVideosArr[i].isVoted = true;        
+      }
+
+      storedVideosArr[i].votes = votes;
+      var votesLbl = document.getElementById(storedVideosArr[i].source);
+      if (votes === 1) { 
+        votesLbl.innerHTML = votes + ' like';  
+      } else {
+        votesLbl.innerHTML = votes + ' likes';
+      }
+
+      localStorage.setItem('Videos-Git', JSON.stringify(storedVideosArr));  
+      break;
+    }
+  }
 }

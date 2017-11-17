@@ -1,60 +1,66 @@
 // link variables
 var allLinks = [];
 var linksArr = [
-  ['HTML5 Forms', 'https://robertnyman.com/html5/forms/input-types.html', 'Interactive HTML'],
-  ['Symbols/Punctuation', 'https://www.w3schools.com/charsets/ref_utf_punctuation.asp', 'short description'],
-  ['All things HTML and CSS', 'https://learn.shayhowe.com/', 'short description'],
-  ['Complete HTML cheat sheet', 'http://blog.creative-tim.com/tutorial/html-cheat-sheet-for-download/', 'A cheat sheet for HTML']
+  ['HTML5 Forms', 'https://robertnyman.com/html5/forms/input-types.html', 'Interactive HTML', 42, false],
+  ['Symbols/Punctuation', 'https://www.w3schools.com/charsets/ref_utf_punctuation.asp', 'short description', 13, false],
+  ['All things HTML and CSS', 'https://learn.shayhowe.com/', 'short description', 2, false],
+  ['Complete HTML cheat sheet', 'http://blog.creative-tim.com/tutorial/html-cheat-sheet-for-download/', 'A cheat sheet for HTML',16, false]
 ];
 // video variables
 var allVideos = [];
 var videosArr = [
-  ['Learn HTML in 12 Minutes', 'https://www.youtube.com/watch?v=bWPMSSsVdPk', 'Basic intro to HTML'],
-  ['HTML5 Tutorial for Beginners', 'https://www.youtube.com/watch?v=9gTw2EDkaDQ', '6 part video for learning ']
+  ['Learn HTML in 12 Minutes', 'https://www.youtube.com/watch?v=bWPMSSsVdPk', 'Basic intro to HTML', 23, false],
+  ['HTML5 Tutorial for Beginners', 'https://www.youtube.com/watch?v=9gTw2EDkaDQ', '6 part video for learning', 18, false]
 ];
 
 // Local Storage variables
+// localStorage.removeItem('Links-html');
+// localStorage.removeItem('Videos-html');
 var storedLinksArr = JSON.parse(localStorage.getItem('Links-html'));
 var storedVideosArr = JSON.parse(localStorage.getItem('Videos-html'));
 
 // Constructor function to create a Link object
-function Link(name, source, description) {
+function Link(name, source, description, votes, isVoted) {
   this.name = name;
   this.source = source;
   this.description = description;
+  this.votes = votes;
+  this.isVotes = isVoted;
   allLinks.push(this);
 }
 
-// Constructor function to create a Link object
-function Video(name, source, description) {
+// Constructor function to create a Video object
+function Video(name, source, description, votes, isVoted) {
   this.name = name;
   this.source = source;
   this.description = description;
+  this.votes = votes;
+  this.isVotes = isVoted;  
   allVideos.push(this);
 }
 
 // populate our links array object
 function createLinks() {
   for (var i = 0; i < linksArr.length; i++) {
-    new Link(linksArr[i][0], linksArr[i][1], linksArr[i][2]);
+    new Link(linksArr[i][0], linksArr[i][1], linksArr[i][2], linksArr[i][3], linksArr[i][4]);
   }
 }
-createLinks();
 
 // populate our videos array object
 function createVideo() {
   for (var j = 0; j < videosArr.length; j++) {
-    new Video(videosArr[j][0], videosArr[j][1], videosArr[j][2]);
+    new Video(videosArr[j][0], videosArr[j][1], videosArr[j][2], videosArr[j][3], videosArr[j][4]);
   }
 };
-createVideo();
 
 // Init the local storage variables
 if (storedLinksArr === null) {
+  createLinks();
   localStorage.setItem('Links-html', JSON.stringify(allLinks));
   storedLinksArr = JSON.parse(localStorage.getItem('Links-html'));
 }
 if (storedVideosArr === null) {
+  createVideo();  
   localStorage.setItem('Videos-html', JSON.stringify(allVideos));
   storedVideosArr = JSON.parse(localStorage.getItem('Videos-html'));
 }
@@ -66,30 +72,32 @@ function addElementsToTable(tableName, linksArray) {
     // we're creating a link, list element
     var liAEl = document.createElement('li');
     var aEl = document.createElement('a');
-    aEl.textContent = linksArray[i]['name'];
+    aEl.textContent = linksArray[i].name;
     aEl.href = (linksArray[i]['source']);
     liAEl.appendChild(aEl);
-    ulEl.appendChild(liAEl);
 
-    // we're creating a regular element
-    var liEl = document.createElement('li');
-    liEl.textContent = linksArray[i]['description'];
-    ulEl.appendChild(liEl);
-  }
-};
-addElementsToTable('link-list', storedLinksArr);
-addElementsToTable('video-list', storedVideosArr);
+    var thumbsImg = document.createElement('img');
+    if (linksArray[i].isVoted) {
+      thumbsImg.src = '../assets/thumbs-up.png';
+    } else {
+      thumbsImg.src = '../assets/thumbs-upgrey.png';      
+    }
+    thumbsImg.setAttribute('id', linksArray[i].name);
+    thumbsImg.addEventListener('mousedown', toggleVotes);
+    thumbsImg.classList.add('vote');
+    liAEl.appendChild(thumbsImg);
 
-// populate our tables
-function addElementsToTable(tableName, linksArray) {
-  var ulEl = document.getElementById(tableName);
-  for (var i = 0; i < linksArray.length; i++) {
-    // we're creating a link, list element
-    var liAEl = document.createElement('li');
-    var aEl = document.createElement('a');
-    aEl.textContent = linksArray[i]['name'];
-    aEl.href = (linksArray[i]['source']);
-    liAEl.appendChild(aEl);
+    var votesLbl = document.createElement('label');
+    votesLbl.setAttribute('id', linksArray[i]['source']);
+    votesLbl.classList.add('votesLbl');
+    var votes = linksArray[i]['votes'];
+    if (votes === 1) { 
+      votesLbl.innerHTML = votes + ' like';        
+    } else {
+      votesLbl.innerHTML = votes + ' likes';
+    }
+    
+    liAEl.appendChild(votesLbl);
     ulEl.appendChild(liAEl);
 
     // we're creating a regular element
@@ -118,11 +126,11 @@ function addFunction(event) {
     }
 
     if (isVideo === 'Yes') {
-      storedVideosArr.push(new Video(name, source, description));
+      storedVideosArr.push(new Video(name, source, description, 0, false));
       localStorage.setItem('Videos-html', JSON.stringify(storedVideosArr));
       linkType = 'video-list';
     } else {
-      storedLinksArr.push(new Link(name, source, description));
+      storedLinksArr.push(new Link(name, source, description, 0, false));
       localStorage.setItem('Links-html', JSON.stringify(storedLinksArr));
       linkType = 'link-list';
     }
@@ -138,6 +146,20 @@ function addFunction(event) {
     aEl.href = source;
 
     liAEl.appendChild(aEl);
+
+    var thumbsImg = document.createElement('img');
+    thumbsImg.src = '../assets/thumbs-upgrey.png';      
+    thumbsImg.setAttribute('id', name);
+    thumbsImg.addEventListener('mousedown', toggleVotes);
+    thumbsImg.classList.add('vote');
+    liAEl.appendChild(thumbsImg);
+
+    var votesLbl = document.createElement('label');
+    votesLbl.setAttribute('id', source);
+    votesLbl.classList.add('votesLbl');
+    votesLbl.innerHTML = '0 likes';
+    liAEl.appendChild(votesLbl);
+
     ulEl.appendChild(liAEl);
     ulEl.appendChild(liEl);
 
@@ -213,4 +235,62 @@ for (k = 0; k < acc.length; k++) {
       panel.style.display = "block";
     }
   };
+}
+
+
+
+// testing
+function toggleVotes(event) {
+  for (var i = 0; i < storedLinksArr.length; i++) {
+    if (storedLinksArr[i].name === event.target.id) {
+      var votes = storedLinksArr[i].votes;
+      var thumbsImg = document.getElementById(storedLinksArr[i].name);
+      if (thumbsImg.src.search("assets/thumbs-up.png") !== -1 && storedLinksArr[i].isVoted === true) {
+        thumbsImg.src = '../assets/thumbs-upgrey.png';
+        votes--;
+        storedLinksArr[i].isVoted = false;        
+      } else {
+        thumbsImg.src = '../assets/thumbs-up.png';  
+        votes++;        
+        storedLinksArr[i].isVoted = true;        
+      }
+
+      storedLinksArr[i].votes = votes;
+      var votesLbl = document.getElementById(storedLinksArr[i].source);
+      if (votes === 1) { 
+        votesLbl.innerHTML = votes + ' like';  
+      } else {
+        votesLbl.innerHTML = votes + ' likes';
+      }
+
+      localStorage.setItem('Links-html', JSON.stringify(storedLinksArr));      
+      break;
+    }
+  }
+  for (var i = 0; i < storedVideosArr.length; i++) {
+    if (storedVideosArr[i].name === event.target.id) {
+      var votes = storedVideosArr[i].votes;
+      var thumbsImg = document.getElementById(storedVideosArr[i].name);
+      if (thumbsImg.src.search("assets/thumbs-up.png") !== -1 && storedVideosArr[i].isVoted === true) {
+        thumbsImg.src = '../assets/thumbs-upgrey.png';
+        votes--;
+        storedVideosArr[i].isVoted = false;        
+      } else {
+        thumbsImg.src = '../assets/thumbs-up.png';  
+        votes++;        
+        storedVideosArr[i].isVoted = true;        
+      }
+
+      storedVideosArr[i].votes = votes;
+      var votesLbl = document.getElementById(storedVideosArr[i].source);
+      if (votes === 1) { 
+        votesLbl.innerHTML = votes + ' like';  
+      } else {
+        votesLbl.innerHTML = votes + ' likes';
+      }
+
+      localStorage.setItem('Videos-html', JSON.stringify(storedVideosArr));  
+      break;
+    }
+  }
 }
