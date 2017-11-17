@@ -19,17 +19,17 @@
     background-repeat: no-repeat;
     background-position: 50% 50%;
     vertical-align: middle;
-    text-shadow: 3px 3px 3px black;        
+    text-shadow: 3px 3px 3px black;
 }
 
 /*CSS link*/
 #one {
-  transition: all .2s ease-in-out;  
+  transition: all .2s ease-in-out;
   background-image: url("../assets/light-bulb-portrate.jpg");
 }
 /*GIT link*/
 #two {
-  background-image: url("../assets/git-octocat-portrate.jpg");
+  background-image: url("../assets/pull-back-portrate.jpg");
 }
 /*HTML link*/
 #three {
@@ -43,48 +43,48 @@
 .overlay {
   height: 100%;
   width: 100%;
-  background: rgba(0, 0, 0, 0.2); 
+  background: rgba(0, 0, 0, 0.2);
 }
 
 .cssLabel {
-  color: white;  
+  color: white;
   top: 44%;
   line-height: 100px;
   font-family: cursive;
   font-size: 180px;
   font-family: 'Yellowtail', cursive;
   position: relative;
-  transition: all .1s ease-in-out;  
+  transition: all .1s ease-in-out;
 }
 
 #one:hover, #two:hover, #three:hover, #four:hover {
   transition: all .2s ease-in-out;
-  transform: scale(1.05); 
-  box-shadow: 0 0 20px 5px #e66a27; 
+  transform: scale(1.05);
+  box-shadow: 0 0 20px 5px #e66a27;
 }
 
 #gitLabel {
-  color: white;  
-  top: 44%;
+  color: white;
+  top: 32%;
   line-height: 100px;
   font-family: cursive;
-  font-size: 180px;
+  font-size: 140px;
   font-family: 'Passion One', sans-serif;
   position: relative;
 }
 
 #htmlLabel {
-  color: white;  
+  color: white;
   top: 44%;
   line-height: 100px;
   font-family: cursive;
-  font-size: 140px;
+  font-size: 110px;
   font-family: 'Roboto Condensed', sans-serif;
   position: relative;
 }
 
 #pmLabel {
-  color: white;  
+  color: white;
   top: 38%;
   line-height: 100px;
   font-family: cursive;
