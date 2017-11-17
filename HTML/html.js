@@ -3,6 +3,7 @@ var allLinks = [];
 var linksArr = [
   ['W3schools', 'https://www.w3schools.com/html/default.asp', 'learn HTML', 12, false],
   ['Mozilla Developer Network (MDN)', 'https://developer.mozilla.org/en-US/docs/Web/HTML', 'all things HTML', 25, false],
+  ['HTML CSS and JS', 'http://html-css-js.com/', 'Learn HTML CSS and JS', 10, false],
   ['Shay Howe', 'https://learn.shayhowe.com/', 'code school for HTML and CSS', 7, false],
   ['Robert Nyman', 'https://robertnyman.com/html5/forms/input-types.html', 'HTML5 Forms', 1, false],
   ['HTML5 Up', 'https://html5up.net/', 'learn form code in HTML', 2, false],
