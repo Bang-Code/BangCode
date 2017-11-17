@@ -21,6 +21,8 @@ function topFunction() {
   }
 }
 
+
+
 // logo image in the NavBar
 var img = document.getElementById('logo').addEventListener('click', logoClicked);
 function logoClicked() {
@@ -35,7 +37,7 @@ function cssClicked() {
 
 var gitCell = document.getElementById('two').addEventListener('click', gitClicked);
 function gitClicked() {
-  window.location = "../Git/git.html";
+  window.location = "../Javascript/javascript.html";
 };
 
 var htmlCell = document.getElementById('three').addEventListener('click', htmlClicked);
@@ -45,5 +47,5 @@ function htmlClicked() {
 
 var pmCell = document.getElementById('four').addEventListener('click', pmClicked);
 function pmClicked() {
-  window.location = "../ProjectManagement/pm.html";
+  window.location = "../TryCatch/tryCatch.html";
 };
