@@ -1,16 +1,41 @@
 // link variables
 var allLinks = [];
 var linksArr = [
-  ['JS Getting Started', 'http://videojs.com/getting-started/#customize', 'Video Series in JS', 4, false], 
-  ['FUN FUN FUNCTION', 'https://www.youtube.com/channel/UCO1cgjhGzsSYb1rsB4bFe4Q', 'Functional Programming', 20, false], 
-  ['REPL.it', 'Write Code https://repl.it/', 'code writer', 40, false], 
-  ['James Padolsey', 'https://j11y.io/', 'resource site', 12, false], 
+  //Git/GitHub/ATOM resources
+  ['Atlassian', 'https://www.atlassian.com/git/', 'getting git right tutorials', 8, false],
+  ['GitHub Help', 'https://help.github.com/', 'Learn Git/GitHub'],
+  ['Git-Cheat', 'www.git-tower.com/learn/', 'Quick reference for git operations', 13, false],
+  ['git ignore', 'www.gitignore.io/', 'How to use the git ignore option for security', 2, false],
+  ['Atom Documention', 'http://flight-manual.atom.io/', 'flight manual for learning ATOM', 3, false],
+  //Project Management
   ['Trello', 'https://trello.com/', 'project tracking tool', 8, false],
+  ['Waffle.io', 'https://waffle.io/', 'Free or Paid Project Management Tool', 5, false],
+  //misc
+  ['Mark Down', 'guides.github.com/features/mastering-markdown/', 'markdown fundamentals', 4, false],
+  ['REPL.it', 'Write Code https://repl.it/', 'code writer', 19, false],
+  //Text/Font
+  ['Fun Lorem Ipsums', 'https://www.shopify.com/partners/blog/79940998-15-funny-lorem-ipsum-generators-to-shake-up-your-design-mockups', '15 funny lorem ipsum generators', 26, false],
+  ['Google Fonts', 'https://fonts.google.com/', 'All fonts you could ever dream of available for free',
+    31, false],
+  //Color picker/generator
+  ['Paletton', 'http://paletton.com/#uid=1000u0kllllaFw0g0qFqFg0w0aF', 'Color Picker', 5, false],
+  ['W3schools', 'https://www.w3schools.com/css/css_colors.asp', 'adding color to your page', 8, false],
+  ['Color-hex', 'http://www.color-hex.com/', 'HEX color picker', 11, false],
+  ['Adobe Color', 'https://color.adobe.com/create/color-wheel/', 'Adobe color picker', 1, false],
+  ['Canva', 'https://www.canva.com/color-palette/', 'Color Palette Generator', 18, false],
+  //other
+  ['Canva', 'https://www.canva.com/', 'All things web design', 10, false],
+  ['James Padolsey', 'https://j11y.io/', 'resource site', 12, false],
+  ['Pixir', 'https://pixlr.com/editor/', 'Free Online Photo Editor', 13, false],
+  ['PNG Tree', 'https://pngtree.com/', 'Free and Paid imager resources', 22, false],
+  ['Leaflets JS', 'http://leafletjs.com/index.html', 'Adding Maps', 14, false],
+  ['Google', 'https://www.google.com/', 'When all else fails', 11, false],
 ];
 // video variables
 var allVideos = [];
 var videosArr = [
-  ['Code School', 'https://www.codeschool.com/courses/discover-devtools', 'Discover DEV tools', 4, false]
+  ['LearnCode Academy', 'https://www.youtube.com/user/learncodeacademy', 'Videos about becoming a web devloper', 18, false],
+  ['Code School', 'https://www.codeschool.com/courses/discover-devtools', 'Discover DEV tools', 15, false],
 ];
 
 // Local Storage variables
@@ -35,7 +60,7 @@ function Video(name, source, description, votes, isVoted) {
   this.source = source;
   this.description = description;
   this.votes = votes;
-  this.isVotes = isVoted;  
+  this.isVotes = isVoted;
   allVideos.push(this);
 }
 
@@ -60,7 +85,7 @@ if (storedLinksArr === null) {
   storedLinksArr = JSON.parse(localStorage.getItem('Links-pm'));
 }
 if (storedVideosArr === null) {
-  createVideo();  
+  createVideo();
   localStorage.setItem('Videos-pm', JSON.stringify(allVideos));
   storedVideosArr = JSON.parse(localStorage.getItem('Videos-pm'));
 }
@@ -80,7 +105,7 @@ function addElementsToTable(tableName, linksArray) {
     if (linksArray[i].isVoted) {
       thumbsImg.src = '../assets/thumbs-up.png';
     } else {
-      thumbsImg.src = '../assets/thumbs-upgrey.png';      
+      thumbsImg.src = '../assets/thumbs-upgrey.png';
     }
     thumbsImg.setAttribute('id', linksArray[i].name);
     thumbsImg.addEventListener('mousedown', toggleVotes);
@@ -91,12 +116,12 @@ function addElementsToTable(tableName, linksArray) {
     votesLbl.setAttribute('id', linksArray[i]['source']);
     votesLbl.classList.add('votesLbl');
     var votes = linksArray[i]['votes'];
-    if (votes === 1) { 
-      votesLbl.innerHTML = votes + ' like';        
+    if (votes === 1) {
+      votesLbl.innerHTML = votes + ' like';
     } else {
       votesLbl.innerHTML = votes + ' likes';
     }
-    
+
     liAEl.appendChild(votesLbl);
     ulEl.appendChild(liAEl);
 
@@ -148,7 +173,7 @@ function addFunction(event) {
     liAEl.appendChild(aEl);
 
     var thumbsImg = document.createElement('img');
-    thumbsImg.src = '../assets/thumbs-upgrey.png';      
+    thumbsImg.src = '../assets/thumbs-upgrey.png';
     thumbsImg.setAttribute('id', name);
     thumbsImg.addEventListener('mousedown', toggleVotes);
     thumbsImg.classList.add('vote');
@@ -248,22 +273,22 @@ function toggleVotes(event) {
       if (thumbsImg.src.search("assets/thumbs-up.png") !== -1 && storedLinksArr[i].isVoted === true) {
         thumbsImg.src = '../assets/thumbs-upgrey.png';
         votes--;
-        storedLinksArr[i].isVoted = false;        
+        storedLinksArr[i].isVoted = false;
       } else {
-        thumbsImg.src = '../assets/thumbs-up.png';  
-        votes++;        
-        storedLinksArr[i].isVoted = true;        
+        thumbsImg.src = '../assets/thumbs-up.png';
+        votes++;
+        storedLinksArr[i].isVoted = true;
       }
 
       storedLinksArr[i].votes = votes;
       var votesLbl = document.getElementById(storedLinksArr[i].source);
-      if (votes === 1) { 
-        votesLbl.innerHTML = votes + ' like';  
+      if (votes === 1) {
+        votesLbl.innerHTML = votes + ' like';
       } else {
         votesLbl.innerHTML = votes + ' likes';
       }
 
-      localStorage.setItem('Links-pm', JSON.stringify(storedLinksArr));      
+      localStorage.setItem('Links-pm', JSON.stringify(storedLinksArr));
       break;
     }
   }
@@ -274,22 +299,22 @@ function toggleVotes(event) {
       if (thumbsImg.src.search("assets/thumbs-up.png") !== -1 && storedVideosArr[i].isVoted === true) {
         thumbsImg.src = '../assets/thumbs-upgrey.png';
         votes--;
-        storedVideosArr[i].isVoted = false;        
+        storedVideosArr[i].isVoted = false;
       } else {
-        thumbsImg.src = '../assets/thumbs-up.png';  
-        votes++;        
-        storedVideosArr[i].isVoted = true;        
+        thumbsImg.src = '../assets/thumbs-up.png';
+        votes++;
+        storedVideosArr[i].isVoted = true;
       }
 
       storedVideosArr[i].votes = votes;
       var votesLbl = document.getElementById(storedVideosArr[i].source);
-      if (votes === 1) { 
-        votesLbl.innerHTML = votes + ' like';  
+      if (votes === 1) {
+        votesLbl.innerHTML = votes + ' like';
       } else {
         votesLbl.innerHTML = votes + ' likes';
       }
 
-      localStorage.setItem('Videos-pm', JSON.stringify(storedVideosArr));  
+      localStorage.setItem('Videos-pm', JSON.stringify(storedVideosArr));
       break;
     }
   }
