@@ -1,163 +1,68 @@
 body {
-  
-  margin: 0;
   background: #d9d9d9;
   font-family: 'Roboto Condensed', sans-serif;
 }
 
-#header {
-  height: 60px;
-  overflow: hidden;
-  background-color: #333;
-  font-family: Arial;
-  margin-bottom: 10%;
+.bio {
+  display: block;  
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;  
 }
 
-#headText {
-  color: white;
-  margin-left: 31%;
+.container {
+  display: block;  
+  position: relative;
+  margin-top: 50px;  
+  background-color: white;
+  height: 370px;
+  width: 800px;
 }
 
-#bio {
-  background: #d9d9d9;
-  margin-left: 20%;
-  margin-right: 20%;
-  padding: 2%;
+#imgBox {
+  width: 200px;
 }
 
-.name {
-  background-color:white;
-  margin-left: 40%;
-  margin-bottom: 19%;
+.profilePic {
+  display: inline-block;  
+  position: absolute;
+  padding-top: 30px;
+  padding-left: 20px;
 }
 
-
-
-
-
-#rj{
-  background: white;
-  padding-bottom: 2%;
-  padding-left: 1%;
-  padding-top: 3%;
-  margin-top: 5%;
-  margin-left: 2%;
-  margin-right: 2%;
-  margin-bottom: 5%;
-
+.contentBox {
+  width: auto;
+  padding: 20px;
+  margin-left: 200px;  
 }
 
-#rjp{
-  padding:3%;
-  background-color:white;
-  margin-left: 30%;
-  margin-top:-39%;
-  font-size: 18px;
-  line-height: 150%;
+#name {
+  width: auto;
+  font-size: 30px;
+  text-align: center;  
 }
 
-#rjpic{
-  margin-right: 70%;
-  margin-bottom: 5%;
-  margin-top: -20%;
+#bioParagraph {
+  display: inline-block;
+  font-size: 20px;
+  text-align: justify;
+  margin-top: 0px;
 }
 
-
-
-#ovi {
-  background: white;
-  padding-right: 10%;
-  padding-top: 1%;
-  padding-bottom:1%;
-  margin-top: 3%;
-  margin-left: 2%;
-  margin-right: 1%;
-  margin-bottom: 5%;
+#rjContainer {
+  margin-top: 110px;
+  height: 300px;
 }
 
-
-#ovi_para{
-  padding:1%;
-  background-color:white;
-  margin-left: 38%;
-  margin-right: -5%;
-  margin-top:-50%;
-  font-size: 18px;
-  line-height: 150%;
-
-}
- a{
-   color: blue;
-   font-family: font-family: 'Inconsolata', monospace;
-    text-decoration: none;
- }
-
- a:hover{
-   color:#e66a27;
-
- }
-
-#ovipic{
-  padding-left: 2%;
-  padding-bottom: 5%;
-  margin-right: 70%;
-  margin-bottom: -3%;
-  margin-top: -11%;
+#opContainer {
+  height: 340px;
 }
 
-#td {
-  background: white;
-  padding-bottom: 4%;
-  padding-top: 1%;
-  margin-top: 3%;
-  margin-left: 2%;
-  margin-right: 2%;
-  margin-bottom: 5%;
+#tdContainer {
+  height: 280px;
 }
 
-#tdpic{
-  padding-left: 2%;
-  padding-bottom: 5%;
-  padding-top:-64%;
-  margin-right: 70%;
-  margin-bottom: 3%;
-  margin-top: -20%;
-
-}
-
-#tdp{
-  padding:2%;
-  background-color:white;
-  margin-left: 34%;
-  margin-top:-38%;
-  font-size: 18px;
-  line-height: 150%;
-}
-
-#tc{
-  background: white;
-  padding-bottom: 2%;
-  padding-top: 1%;
-  margin-top: 3%;
-  margin-left: 2%;
-  margin-right: 2%;
-  margin-bottom: 5%;
-
-}
-#tcpic{
-  padding-left: 2%;
-  padding-bottom: 5%;
-
-  margin-right: 70%;
-  margin-bottom: 3%;
-  margin-top: -25%;
-}
-
-#tcp{
-  padding-top:2%;
-  background-color:white;
-  margin-left: 34%;
-  margin-top:-33%;
-  font-size: 18px;
-  line-height: 150%;
+#tcContainer {
+  height: 260px;
+  margin-bottom: 40px;
 }
