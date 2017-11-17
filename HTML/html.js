@@ -2,15 +2,15 @@
 var allLinks = [];
 var linksArr = [
   ['HTML5 Forms', 'https://robertnyman.com/html5/forms/input-types.html', 'Interactive HTML', 42, false],
-  ['Symbols/Punctuation', 'https://www.w3schools.com/charsets/ref_utf_punctuation.asp', 'short description', 0, false],
-  ['All things HTML and CSS', 'https://learn.shayhowe.com/', 'short description', 0, false],
-  ['Complete HTML cheat sheet', 'http://blog.creative-tim.com/tutorial/html-cheat-sheet-for-download/', 'A cheat sheet for HTML', 0, false]
+  ['Symbols/Punctuation', 'https://www.w3schools.com/charsets/ref_utf_punctuation.asp', 'short description', 13, false],
+  ['All things HTML and CSS', 'https://learn.shayhowe.com/', 'short description', 2, false],
+  ['Complete HTML cheat sheet', 'http://blog.creative-tim.com/tutorial/html-cheat-sheet-for-download/', 'A cheat sheet for HTML',16, false]
 ];
 // video variables
 var allVideos = [];
 var videosArr = [
-  ['Learn HTML in 12 Minutes', 'https://www.youtube.com/watch?v=bWPMSSsVdPk', 'Basic intro to HTML', 0, false],
-  ['HTML5 Tutorial for Beginners', 'https://www.youtube.com/watch?v=9gTw2EDkaDQ', '6 part video for learning', 0, false]
+  ['Learn HTML in 12 Minutes', 'https://www.youtube.com/watch?v=bWPMSSsVdPk', 'Basic intro to HTML', 23, false],
+  ['HTML5 Tutorial for Beginners', 'https://www.youtube.com/watch?v=9gTw2EDkaDQ', '6 part video for learning', 18, false]
 ];
 
 // Local Storage variables
