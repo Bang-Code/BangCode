@@ -35,8 +35,8 @@ function cssClicked() {
   window.location = "../CSS/css.html";
 };
 
-var gitCell = document.getElementById('two').addEventListener('click', gitClicked);
-function gitClicked() {
+var jsCell = document.getElementById('two').addEventListener('click', jsClicked);
+function jsClicked() {
   window.location = "../Javascript/javascript.html";
 };
 
@@ -45,7 +45,7 @@ function htmlClicked() {
   window.location = "../HTML/html.html";
 };
 
-var pmCell = document.getElementById('four').addEventListener('click', pmClicked);
-function pmClicked() {
+var tryCell = document.getElementById('four').addEventListener('click', tryClicked);
+function tryClicked() {
   window.location = "../TryCatch/tryCatch.html";
 };
