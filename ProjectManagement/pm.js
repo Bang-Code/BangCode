@@ -1,70 +1,92 @@
-// link variables
-var allLinks = [];
-var linksArr = [
-  ['JS Getting Started', 'http://videojs.com/getting-started/#customize', 'Video Series in JS', 4, false], 
-  ['FUN FUN FUNCTION', 'https://www.youtube.com/channel/UCO1cgjhGzsSYb1rsB4bFe4Q', 'Functional Programming', 20, false], 
-  ['REPL.it', 'Write Code https://repl.it/', 'code writer', 40, false], 
-  ['James Padolsey', 'https://j11y.io/', 'resource site', 12, false], 
-  ['Trello', 'https://trello.com/', 'project tracking tool', 8, false],
+// GIT variables
+var allGit = [];
+var gitArr = [
+  ['Atlassian', 'https://www.atlassian.com/git/', 'getting git right tutorials', 9, false],
+  ['GitHub Help', 'https://help.github.com/', ' Learn Git/GitHub', 13, false],
+  ['GIT Tower', 'https://www.git-tower.com/learn/', ' Git and Version Control', 6, false],
+  ['Git Ignore', 'https://www.gitignore.io/', ' adding security to your web page', 15, false],
 ];
-// video variables
-var allVideos = [];
-var videosArr = [
+// PM variables
+var allProjectManagement = [];
+var projectManagementArr = [
   ['Code School', 'https://www.codeschool.com/courses/discover-devtools', 'Discover DEV tools', 4, false]
+];
+//Everything Else variables
+var allEverythingElse = [];
+var everythigElseArr = [
+  []
 ];
 
 // Local Storage variables
 // localStorage.removeItem('Links-pm');
 // localStorage.removeItem('Videos-pm');
-var storedLinksArr = JSON.parse(localStorage.getItem('Links-pm'));
-var storedVideosArr = JSON.parse(localStorage.getItem('Videos-pm'));
-
-// Constructor function to create a Link object
-function Link(name, source, description, votes, isVoted) {
+var storedGitArr = JSON.parse(localStorage.getItem('Links-git'));
+var storedProjectManagementArr = JSON.parse(localStorage.getItem('Links-pm'));
+var storedEverthingElseArr = JSON.parse(localStorage.getItem('Links-everything'));
+// Constructor function to create a GIT object
+function Git(name, source, description, votes, isVoted) {
   this.name = name;
   this.source = source;
   this.description = description;
   this.votes = votes;
   this.isVotes = isVoted;
-  allLinks.push(this);
+  allGit.push(this);
 }
 
-// Constructor function to create a Video object
-function Video(name, source, description, votes, isVoted) {
+// Constructor function to create a PM object
+function ProjectManagement(name, source, description, votes, isVoted) {
   this.name = name;
   this.source = source;
   this.description = description;
   this.votes = votes;
-  this.isVotes = isVoted;  
-  allVideos.push(this);
+  this.isVotes = isVoted;
+  allProjectManagement.push(this);
 }
-
-// populate our links array object
-function createLinks() {
-  for (var i = 0; i < linksArr.length; i++) {
-    new Link(linksArr[i][0], linksArr[i][1], linksArr[i][2], linksArr[i][3], linksArr[i][4]);
+// Constructor function to create Everything Else object
+function EverythingElse(name, source, description, votes, isVoted) {
+  this.name = name;
+  this.source = source;
+  this.description = description;
+  this.votes = votes;
+  this.isVotes = isVoted;
+  allEverythingElse.push(this);
+}
+// populate our git array object
+function createGit() {
+  for (var i = 0; i < gitArr.length; i++) {
+    new Git(gitArr[i][0], gitArr[i][1], gitArr[i][2], gitArr[i][3], gitArr[i][4]);
   }
 }
 
-// populate our videos array object
-function createVideo() {
-  for (var j = 0; j < videosArr.length; j++) {
-    new Video(videosArr[j][0], videosArr[j][1], videosArr[j][2], videosArr[j][3], videosArr[j][4]);
+// populate our PM array object
+function createProjectManagement() {
+  for (var j = 0; j < projectManagementArr.length; j++) {
+    new ProjectManagement(projectManagementArr[j][0], projectManagementArr[j][1], projectManagementArr[j][2], projectManagementArr[j][3], projectManagementArr[j][4]);
   }
-};
+}
+//populate everything else array object
+function createEverythingElse() {
+  for (var j = 0; j < everythigElseArr.length; j++) {
+    new EverythingElse(everythigElseArr[j][0], everythigElseArr[j][1], everythigElseArr[j][2], everythigElseArr[j][3], everythigElseArr[j][4]);
+  }
+}
 
 // Init the local storage variables
-if (storedLinksArr === null) {
-  createLinks();
-  localStorage.setItem('Links-pm', JSON.stringify(allLinks));
-  storedLinksArr = JSON.parse(localStorage.getItem('Links-pm'));
+if (storedGitArr === null) {
+  createGit();
+  localStorage.setItem('Links-git', JSON.stringify(allGit));
+  storedGitArr = JSON.parse(localStorage.getItem('Links-git'));
 }
-if (storedVideosArr === null) {
-  createVideo();  
-  localStorage.setItem('Videos-pm', JSON.stringify(allVideos));
-  storedVideosArr = JSON.parse(localStorage.getItem('Videos-pm'));
+if (storedProjectManagementArr === null) {
+  createProjectManagement();
+  localStorage.setItem('Links-pm', JSON.stringify(allProjectManagement));
+  storedProjectManagementArr = JSON.parse(localStorage.getItem('Links-pm'));
 }
-
+if (storedEverthingElseArr === null) {
+  createProjectManagement();
+  localStorage.setItem('Links-everything', JSON.stringify(allEverythingElse));
+  storedEverthingElseArr = JSON.parse(localStorage.getItem('Links-everything'));
+}
 // populate our tables
 function addElementsToTable(tableName, linksArray) {
   var ulEl = document.getElementById(tableName);
@@ -80,7 +102,7 @@ function addElementsToTable(tableName, linksArray) {
     if (linksArray[i].isVoted) {
       thumbsImg.src = '../assets/thumbs-up.png';
     } else {
-      thumbsImg.src = '../assets/thumbs-upgrey.png';      
+      thumbsImg.src = '../assets/thumbs-upgrey.png';
     }
     thumbsImg.setAttribute('id', linksArray[i].name);
     thumbsImg.addEventListener('mousedown', toggleVotes);
@@ -91,12 +113,12 @@ function addElementsToTable(tableName, linksArray) {
     votesLbl.setAttribute('id', linksArray[i]['source']);
     votesLbl.classList.add('votesLbl');
     var votes = linksArray[i]['votes'];
-    if (votes === 1) { 
-      votesLbl.innerHTML = votes + ' like';        
+    if (votes === 1) {
+      votesLbl.innerHTML = votes + ' like';
     } else {
       votesLbl.innerHTML = votes + ' likes';
     }
-    
+
     liAEl.appendChild(votesLbl);
     ulEl.appendChild(liAEl);
 
@@ -106,8 +128,9 @@ function addElementsToTable(tableName, linksArray) {
     ulEl.appendChild(liEl);
   }
 };
-addElementsToTable('link-list', storedLinksArr);
-addElementsToTable('video-list', storedVideosArr);
+addElementsToTable('git-list', storedGitArr);
+addElementsToTable('project-list', storedProjectManagementArr);
+addElementsToTable('everything-list', storedEverthingElseArr);
 
 // the User Input getting added to the array
 function addFunction(event) {
@@ -125,14 +148,19 @@ function addFunction(event) {
       source = 'http://' + source;
     }
 
-    if (isVideo === 'Yes') {
-      storedVideosArr.push(new Video(name, source, description, 0, false));
-      localStorage.setItem('Videos-pm', JSON.stringify(storedVideosArr));
-      linkType = 'video-list';
-    } else {
-      storedLinksArr.push(new Link(name, source, description, 0, false));
-      localStorage.setItem('Links-pm', JSON.stringify(storedLinksArr));
-      linkType = 'link-list';
+    if (isVideo === 'GIT') {
+      storedGitArr.push(new Git(name, source, description, 0, false));
+      localStorage.setItem('Links-git', JSON.stringify(storedGitArr));
+      linkType = 'git-list';
+    }
+    if (isVideo === 'PM') {
+      storedProjectManagementArr.push(new ProjectManagement(name, source, description, 0, false));
+      localStorage.setItem('Links-pm', JSON.stringify(storedProjectManagementArr));
+      linkType = 'project-list';
+    }else {
+      storedEverthingElseArr.push(new EverythingElse(name, source, description, 0, false));
+      localStorage.setItem('Links-everything', JSON.stringify(storedEverthingElseArr));
+      linkType = 'everything-list';
     }
 
     // add the ul element to the end of it's table
@@ -148,7 +176,7 @@ function addFunction(event) {
     liAEl.appendChild(aEl);
 
     var thumbsImg = document.createElement('img');
-    thumbsImg.src = '../assets/thumbs-upgrey.png';      
+    thumbsImg.src = '../assets/thumbs-upgrey.png';
     thumbsImg.setAttribute('id', name);
     thumbsImg.addEventListener('mousedown', toggleVotes);
     thumbsImg.classList.add('vote');
@@ -241,55 +269,81 @@ for (k = 0; k < acc.length; k++) {
 
 // testing
 function toggleVotes(event) {
-  for (var i = 0; i < storedLinksArr.length; i++) {
-    if (storedLinksArr[i].name === event.target.id) {
-      var votes = storedLinksArr[i].votes;
-      var thumbsImg = document.getElementById(storedLinksArr[i].name);
-      if (thumbsImg.src.search("assets/thumbs-up.png") !== -1 && storedLinksArr[i].isVoted === true) {
+  for (var i = 0; i < storedGitArr.length; i++) {
+    if (storedGitArr[i].name === event.target.id) {
+      var votes = storedGitArr[i].votes;
+      var thumbsImg = document.getElementById(storedGitArr[i].name);
+      if (thumbsImg.src.search("assets/thumbs-up.png") !== -1 && storedGitArr[i].isVoted === true) {
         thumbsImg.src = '../assets/thumbs-upgrey.png';
         votes--;
-        storedLinksArr[i].isVoted = false;        
+        storedGitArr[i].isVoted = false;
       } else {
-        thumbsImg.src = '../assets/thumbs-up.png';  
-        votes++;        
-        storedLinksArr[i].isVoted = true;        
+        thumbsImg.src = '../assets/thumbs-up.png';
+        votes++;
+        storedGitArr[i].isVoted = true;
       }
 
-      storedLinksArr[i].votes = votes;
-      var votesLbl = document.getElementById(storedLinksArr[i].source);
-      if (votes === 1) { 
-        votesLbl.innerHTML = votes + ' like';  
+      storedGitArr[i].votes = votes;
+      var votesLbl = document.getElementById(storedGitArr[i].source);
+      if (votes === 1) {
+        votesLbl.innerHTML = votes + ' like';
       } else {
         votesLbl.innerHTML = votes + ' likes';
       }
 
-      localStorage.setItem('Links-pm', JSON.stringify(storedLinksArr));      
+      localStorage.setItem('Links-git', JSON.stringify(storedGitArr));
       break;
     }
   }
-  for (var i = 0; i < storedVideosArr.length; i++) {
-    if (storedVideosArr[i].name === event.target.id) {
-      var votes = storedVideosArr[i].votes;
-      var thumbsImg = document.getElementById(storedVideosArr[i].name);
-      if (thumbsImg.src.search("assets/thumbs-up.png") !== -1 && storedVideosArr[i].isVoted === true) {
+  for (var i = 0; i < storedProjectManagementArr.length; i++) {
+    if (storedProjectManagementArr[i].name === event.target.id) {
+      var votes = storedProjectManagementArr[i].votes;
+      var thumbsImg = document.getElementById(storedProjectManagementArr[i].name);
+      if (thumbsImg.src.search("assets/thumbs-up.png") !== -1 && storedProjectManagementArr[i].isVoted === true) {
         thumbsImg.src = '../assets/thumbs-upgrey.png';
         votes--;
-        storedVideosArr[i].isVoted = false;        
+        storedProjectManagementArr[i].isVoted = false;
       } else {
-        thumbsImg.src = '../assets/thumbs-up.png';  
-        votes++;        
-        storedVideosArr[i].isVoted = true;        
+        thumbsImg.src = '../assets/thumbs-up.png';
+        votes++;
+        storedProjectManagementArr[i].isVoted = true;
       }
 
-      storedVideosArr[i].votes = votes;
-      var votesLbl = document.getElementById(storedVideosArr[i].source);
-      if (votes === 1) { 
-        votesLbl.innerHTML = votes + ' like';  
+      storedProjectManagementArr[i].votes = votes;
+      var votesLbl = document.getElementById(storedProjectManagementArr[i].source);
+      if (votes === 1) {
+        votesLbl.innerHTML = votes + ' like';
       } else {
         votesLbl.innerHTML = votes + ' likes';
       }
 
-      localStorage.setItem('Videos-pm', JSON.stringify(storedVideosArr));  
+      localStorage.setItem('Links-pm', JSON.stringify(storedProjectManagementArr));
+      break;
+    }
+  }
+  for (var i = 0; i < storedEverthingElseArr.length; i++) {
+    if (storedEverthingElseArr[i].name === event.target.id) {
+      var votes = storedEverthingElseArr[i].votes;
+      var thumbsImg = document.getElementById(storedEverthingElseArr[i].name);
+      if (thumbsImg.src.search("assets/thumbs-up.png") !== -1 && storedEverthingElseArr[i].isVoted === true) {
+        thumbsImg.src = '../assets/thumbs-upgrey.png';
+        votes--;
+        storedEverthingElseArr[i].isVoted = false;
+      } else {
+        thumbsImg.src = '../assets/thumbs-up.png';
+        votes++;
+        storedEverthingElseArr[i].isVoted = true;
+      }
+
+      storedEverthingElseArr[i].votes = votes;
+      var votesLbl = document.getElementById(storedEverthingElseArr[i].source);
+      if (votes === 1) {
+        votesLbl.innerHTML = votes + ' like';
+      } else {
+        votesLbl.innerHTML = votes + ' likes';
+      }
+
+      localStorage.setItem('Links-everything', JSON.stringify(storedEverthingElseArr));
       break;
     }
   }
