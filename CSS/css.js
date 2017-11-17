@@ -1,19 +1,20 @@
 // link variables
 var allLinks = [];
 var linksArr = [
-['CSS Tricks','https://css-tricks.com/','css tricks', 32, false], 
-['layout','http://learnlayout.com/','layout', 5, false], 
-['Layout','https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Introduction','layout - mozilla',8, false],
-['Zen Garden','http://www.csszengarden.com/','zen garden', 14, false],
-['Color','https://www.w3schools.com/css/css_colors.asp','colour', 28, false],
-['box model','https://css3gen.com/css-box-model/','boxes', 6, false],
-['color-hex-codes','http://www.color-hex.com','hex-codes', 80, false]
+  ['W3schools', 'https://www.w3schools.com/css/default.asp', 'learn CSS', 7, false],
+  ['Mozilla Developer Network (MDN)', 'https://developer.mozilla.org/en-US/docs/Web/CSS', 'all things CSS', 9, false],
+  ['CSS Tricks', 'https://css-tricks.com/', 'Resources and Videos for everything CSS', 32, false],
+  ['Learn CSS Layout', 'http://learnlayout.com/', 'learning CSS fundamentals', 5, false],
+  ['Shay Howe', 'https://learn.shayhowe.com/', 'code school for HTML and CSS', 11, false],
+  ['CSS Zen Garden', 'http://www.csszengarden.com/', 'different ways CSS effects HTML', 14, false],
+  ['CSS3', 'https://css3gen.com/css-box-model/', 'learn the box model', 3, false],
+  ['Smashing Magazine', 'https://www.smashingmagazine.com/2007/05/css-float-theory-things-you-should-know/', 'Understanding Float therory', 17, false],
 ];
 // video variables
 var allVideos = [];
 var videosArr = [
-['video', 'https://www.youtube.com/watch?v=qKoajPPWpmo','css-video', 7, false],
-['Css crash course','https://www.youtube.com/watch?v=yfoY53QXEnI','CSS crash course for begginers', 40, false]
+  ['EJ Media', 'https://www.youtube.com/watch?v=qKoajPPWpmo', 'Introduction to CSS video', 7, false],
+  ['CSS crash course', 'https://www.youtube.com/watch?v=yfoY53QXEnI', 'CSS crash course for begginers', 12, false],
 ];
 
 // Local Storage variables
@@ -38,7 +39,7 @@ function Video(name, source, description, votes, isVoted) {
   this.source = source;
   this.description = description;
   this.votes = votes;
-  this.isVotes = isVoted;  
+  this.isVotes = isVoted;
   allVideos.push(this);
 }
 
@@ -63,7 +64,7 @@ if (storedLinksArr === null) {
   storedLinksArr = JSON.parse(localStorage.getItem('Links-CSS'));
 }
 if (storedVideosArr === null) {
-  createVideo();  
+  createVideo();
   localStorage.setItem('Videos-CSS', JSON.stringify(allVideos));
   storedVideosArr = JSON.parse(localStorage.getItem('Videos-CSS'));
 }
@@ -83,7 +84,7 @@ function addElementsToTable(tableName, linksArray) {
     if (linksArray[i].isVoted) {
       thumbsImg.src = '../assets/thumbs-up.png';
     } else {
-      thumbsImg.src = '../assets/thumbs-upgrey.png';      
+      thumbsImg.src = '../assets/thumbs-upgrey.png';
     }
     thumbsImg.setAttribute('id', linksArray[i].name);
     thumbsImg.addEventListener('mousedown', toggleVotes);
@@ -94,12 +95,12 @@ function addElementsToTable(tableName, linksArray) {
     votesLbl.setAttribute('id', linksArray[i]['source']);
     votesLbl.classList.add('votesLbl');
     var votes = linksArray[i]['votes'];
-    if (votes === 1) { 
-      votesLbl.innerHTML = votes + ' like';        
+    if (votes === 1) {
+      votesLbl.innerHTML = votes + ' like';
     } else {
       votesLbl.innerHTML = votes + ' likes';
     }
-    
+
     liAEl.appendChild(votesLbl);
     ulEl.appendChild(liAEl);
 
@@ -151,7 +152,7 @@ function addFunction(event) {
     liAEl.appendChild(aEl);
 
     var thumbsImg = document.createElement('img');
-    thumbsImg.src = '../assets/thumbs-upgrey.png';      
+    thumbsImg.src = '../assets/thumbs-upgrey.png';
     thumbsImg.setAttribute('id', name);
     thumbsImg.addEventListener('mousedown', toggleVotes);
     thumbsImg.classList.add('vote');
@@ -251,22 +252,22 @@ function toggleVotes(event) {
       if (thumbsImg.src.search("assets/thumbs-up.png") !== -1 && storedLinksArr[i].isVoted === true) {
         thumbsImg.src = '../assets/thumbs-upgrey.png';
         votes--;
-        storedLinksArr[i].isVoted = false;        
+        storedLinksArr[i].isVoted = false;
       } else {
-        thumbsImg.src = '../assets/thumbs-up.png';  
-        votes++;        
-        storedLinksArr[i].isVoted = true;        
+        thumbsImg.src = '../assets/thumbs-up.png';
+        votes++;
+        storedLinksArr[i].isVoted = true;
       }
 
       storedLinksArr[i].votes = votes;
       var votesLbl = document.getElementById(storedLinksArr[i].source);
-      if (votes === 1) { 
-        votesLbl.innerHTML = votes + ' like';  
+      if (votes === 1) {
+        votesLbl.innerHTML = votes + ' like';
       } else {
         votesLbl.innerHTML = votes + ' likes';
       }
 
-      localStorage.setItem('Links-CSS', JSON.stringify(storedLinksArr));      
+      localStorage.setItem('Links-CSS', JSON.stringify(storedLinksArr));
       break;
     }
   }
@@ -277,22 +278,22 @@ function toggleVotes(event) {
       if (thumbsImg.src.search("assets/thumbs-up.png") !== -1 && storedVideosArr[i].isVoted === true) {
         thumbsImg.src = '../assets/thumbs-upgrey.png';
         votes--;
-        storedVideosArr[i].isVoted = false;        
+        storedVideosArr[i].isVoted = false;
       } else {
-        thumbsImg.src = '../assets/thumbs-up.png';  
-        votes++;        
-        storedVideosArr[i].isVoted = true;        
+        thumbsImg.src = '../assets/thumbs-up.png';
+        votes++;
+        storedVideosArr[i].isVoted = true;
       }
 
       storedVideosArr[i].votes = votes;
       var votesLbl = document.getElementById(storedVideosArr[i].source);
-      if (votes === 1) { 
-        votesLbl.innerHTML = votes + ' like';  
+      if (votes === 1) {
+        votesLbl.innerHTML = votes + ' like';
       } else {
         votesLbl.innerHTML = votes + ' likes';
       }
 
-      localStorage.setItem('Videos-CSS', JSON.stringify(storedVideosArr));  
+      localStorage.setItem('Videos-CSS', JSON.stringify(storedVideosArr));
       break;
     }
   }

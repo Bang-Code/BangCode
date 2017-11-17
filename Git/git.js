@@ -1,15 +1,16 @@
 // link variables
 var allLinks = [];
 var linksArr = [
-  ['Git-Cheat', 'www.git-tower.com/learn/','Quick reference for git operations', 13, false],
-  ['git ignore','www.gitignore.io/','How to use the git ignore option', 2, false],
-  ['Mark Down','guides.github.com/features/mastering-markdown/','markdown fundamentals', 4, false]
+  ['W3schools', 'https://www.w3schools.com/js/default.asp', 'learn Javascript', 9, false],
+  ['Mozilla Developer Network (MDN)', 'https://developer.mozilla.org/en-US/docs/Web/JavaScript', 'all things Javascript', 11, false],
+  ['Call Me Nick', 'http://callmenick.com/post/basics-javascript-dom-manipulation', 'Basic JS DOM manipulation', 10, false],
+  ['JS Charts', 'www.jscharts.com', 'free chart generator', 2, false],
 ];
 // video variables
 var allVideos = [];
 var videosArr = [
-  ['video', 'https://www.youtube.com/watch?v=qKoajPPWpmo','css-video', 23, false],
-  ['Css crash course','https://www.youtube.com/watch?v=yfoY53QXEnI','crash course for begginers', 12, false]
+  ['Video JS', 'http://videojs.com/getting-started/', 'Getting Started in JS', 6, false],
+  ['FUN FUN FUNCTION', 'https://www.youtube.com/channel/UCO1cgjhGzsSYb1rsB4bFe4Q', 'Functional Programming', 20, false],
 ];
 
 // Local Storage variables
@@ -34,7 +35,7 @@ function Video(name, source, description, votes, isVoted) {
   this.source = source;
   this.description = description;
   this.votes = votes;
-  this.isVotes = isVoted;  
+  this.isVotes = isVoted;
   allVideos.push(this);
 }
 
@@ -59,7 +60,7 @@ if (storedLinksArr === null) {
   storedLinksArr = JSON.parse(localStorage.getItem('Links-Git'));
 }
 if (storedVideosArr === null) {
-  createVideo();  
+  createVideo();
   localStorage.setItem('Videos-Git', JSON.stringify(allVideos));
   storedVideosArr = JSON.parse(localStorage.getItem('Videos-Git'));
 }
@@ -79,7 +80,7 @@ function addElementsToTable(tableName, linksArray) {
     if (linksArray[i].isVoted) {
       thumbsImg.src = '../assets/thumbs-up.png';
     } else {
-      thumbsImg.src = '../assets/thumbs-upgrey.png';      
+      thumbsImg.src = '../assets/thumbs-upgrey.png';
     }
     thumbsImg.setAttribute('id', linksArray[i].name);
     thumbsImg.addEventListener('mousedown', toggleVotes);
@@ -90,12 +91,12 @@ function addElementsToTable(tableName, linksArray) {
     votesLbl.setAttribute('id', linksArray[i]['source']);
     votesLbl.classList.add('votesLbl');
     var votes = linksArray[i]['votes'];
-    if (votes === 1) { 
-      votesLbl.innerHTML = votes + ' like';        
+    if (votes === 1) {
+      votesLbl.innerHTML = votes + ' like';
     } else {
       votesLbl.innerHTML = votes + ' likes';
     }
-    
+
     liAEl.appendChild(votesLbl);
     ulEl.appendChild(liAEl);
 
@@ -147,7 +148,7 @@ function addFunction(event) {
     liAEl.appendChild(aEl);
 
     var thumbsImg = document.createElement('img');
-    thumbsImg.src = '../assets/thumbs-upgrey.png';      
+    thumbsImg.src = '../assets/thumbs-upgrey.png';
     thumbsImg.setAttribute('id', name);
     thumbsImg.addEventListener('mousedown', toggleVotes);
     thumbsImg.classList.add('vote');
@@ -247,22 +248,22 @@ function toggleVotes(event) {
       if (thumbsImg.src.search("assets/thumbs-up.png") !== -1 && storedLinksArr[i].isVoted === true) {
         thumbsImg.src = '../assets/thumbs-upgrey.png';
         votes--;
-        storedLinksArr[i].isVoted = false;        
+        storedLinksArr[i].isVoted = false;
       } else {
-        thumbsImg.src = '../assets/thumbs-up.png';  
-        votes++;        
-        storedLinksArr[i].isVoted = true;        
+        thumbsImg.src = '../assets/thumbs-up.png';
+        votes++;
+        storedLinksArr[i].isVoted = true;
       }
 
       storedLinksArr[i].votes = votes;
       var votesLbl = document.getElementById(storedLinksArr[i].source);
-      if (votes === 1) { 
-        votesLbl.innerHTML = votes + ' like';  
+      if (votes === 1) {
+        votesLbl.innerHTML = votes + ' like';
       } else {
         votesLbl.innerHTML = votes + ' likes';
       }
 
-      localStorage.setItem('Links-Git', JSON.stringify(storedLinksArr));      
+      localStorage.setItem('Links-Git', JSON.stringify(storedLinksArr));
       break;
     }
   }
@@ -273,22 +274,22 @@ function toggleVotes(event) {
       if (thumbsImg.src.search("assets/thumbs-up.png") !== -1 && storedVideosArr[i].isVoted === true) {
         thumbsImg.src = '../assets/thumbs-upgrey.png';
         votes--;
-        storedVideosArr[i].isVoted = false;        
+        storedVideosArr[i].isVoted = false;
       } else {
-        thumbsImg.src = '../assets/thumbs-up.png';  
-        votes++;        
-        storedVideosArr[i].isVoted = true;        
+        thumbsImg.src = '../assets/thumbs-up.png';
+        votes++;
+        storedVideosArr[i].isVoted = true;
       }
 
       storedVideosArr[i].votes = votes;
       var votesLbl = document.getElementById(storedVideosArr[i].source);
-      if (votes === 1) { 
-        votesLbl.innerHTML = votes + ' like';  
+      if (votes === 1) {
+        votesLbl.innerHTML = votes + ' like';
       } else {
         votesLbl.innerHTML = votes + ' likes';
       }
 
-      localStorage.setItem('Videos-Git', JSON.stringify(storedVideosArr));  
+      localStorage.setItem('Videos-Git', JSON.stringify(storedVideosArr));
       break;
     }
   }

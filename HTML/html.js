@@ -1,16 +1,20 @@
 // link variables
 var allLinks = [];
 var linksArr = [
-  ['HTML5 Forms', 'https://robertnyman.com/html5/forms/input-types.html', 'Interactive HTML', 42, false],
-  ['Symbols/Punctuation', 'https://www.w3schools.com/charsets/ref_utf_punctuation.asp', 'short description', 13, false],
-  ['All things HTML and CSS', 'https://learn.shayhowe.com/', 'short description', 2, false],
-  ['Complete HTML cheat sheet', 'http://blog.creative-tim.com/tutorial/html-cheat-sheet-for-download/', 'A cheat sheet for HTML',16, false]
+  ['W3schools', 'https://www.w3schools.com/html/default.asp', 'learn HTML', 12, false],
+  ['Mozilla Developer Network (MDN)', 'https://developer.mozilla.org/en-US/docs/Web/HTML', 'all things HTML', 25, false],
+  ['HTML CSS and JS', 'http://html-css-js.com/', 'Learn HTML CSS and JS', 10, false],
+  ['Shay Howe', 'https://learn.shayhowe.com/', 'code school for HTML and CSS', 7, false],
+  ['Robert Nyman', 'https://robertnyman.com/html5/forms/input-types.html', 'HTML5 Forms', 1, false],
+  ['HTML5 Up', 'https://html5up.net/', 'learn form code in HTML', 2, false],
+  ['Symbols/Punctuation', 'https://www.w3schools.com/charsets/ref_utf_punctuation.asp', 'Add any symbol or punctuation to your page', 4, false],
+  ['Creative Tim', 'http://blog.creative-tim.com/tutorial/html-cheat-sheet-for-download/', 'Complete HTML cheat sheet', 9, false],
 ];
 // video variables
 var allVideos = [];
 var videosArr = [
-  ['Learn HTML in 12 Minutes', 'https://www.youtube.com/watch?v=bWPMSSsVdPk', 'Basic intro to HTML', 23, false],
-  ['HTML5 Tutorial for Beginners', 'https://www.youtube.com/watch?v=9gTw2EDkaDQ', '6 part video for learning', 18, false]
+  ['Learn HTML in 12 Minutes', 'https://www.youtube.com/watch?v=bWPMSSsVdPk', 'Basic intro to HTML', 3, false],
+  ['HTML5 Tutorial for Beginners', 'https://www.youtube.com/watch?v=9gTw2EDkaDQ', '6 part video for learning', 0, false]
 ];
 
 // Local Storage variables
@@ -35,7 +39,7 @@ function Video(name, source, description, votes, isVoted) {
   this.source = source;
   this.description = description;
   this.votes = votes;
-  this.isVotes = isVoted;  
+  this.isVotes = isVoted;
   allVideos.push(this);
 }
 
@@ -60,7 +64,7 @@ if (storedLinksArr === null) {
   storedLinksArr = JSON.parse(localStorage.getItem('Links-html'));
 }
 if (storedVideosArr === null) {
-  createVideo();  
+  createVideo();
   localStorage.setItem('Videos-html', JSON.stringify(allVideos));
   storedVideosArr = JSON.parse(localStorage.getItem('Videos-html'));
 }
@@ -80,7 +84,7 @@ function addElementsToTable(tableName, linksArray) {
     if (linksArray[i].isVoted) {
       thumbsImg.src = '../assets/thumbs-up.png';
     } else {
-      thumbsImg.src = '../assets/thumbs-upgrey.png';      
+      thumbsImg.src = '../assets/thumbs-upgrey.png';
     }
     thumbsImg.setAttribute('id', linksArray[i].name);
     thumbsImg.addEventListener('mousedown', toggleVotes);
@@ -91,12 +95,12 @@ function addElementsToTable(tableName, linksArray) {
     votesLbl.setAttribute('id', linksArray[i]['source']);
     votesLbl.classList.add('votesLbl');
     var votes = linksArray[i]['votes'];
-    if (votes === 1) { 
-      votesLbl.innerHTML = votes + ' like';        
+    if (votes === 1) {
+      votesLbl.innerHTML = votes + ' like';
     } else {
       votesLbl.innerHTML = votes + ' likes';
     }
-    
+
     liAEl.appendChild(votesLbl);
     ulEl.appendChild(liAEl);
 
@@ -148,7 +152,7 @@ function addFunction(event) {
     liAEl.appendChild(aEl);
 
     var thumbsImg = document.createElement('img');
-    thumbsImg.src = '../assets/thumbs-upgrey.png';      
+    thumbsImg.src = '../assets/thumbs-upgrey.png';
     thumbsImg.setAttribute('id', name);
     thumbsImg.addEventListener('mousedown', toggleVotes);
     thumbsImg.classList.add('vote');
@@ -248,22 +252,22 @@ function toggleVotes(event) {
       if (thumbsImg.src.search("assets/thumbs-up.png") !== -1 && storedLinksArr[i].isVoted === true) {
         thumbsImg.src = '../assets/thumbs-upgrey.png';
         votes--;
-        storedLinksArr[i].isVoted = false;        
+        storedLinksArr[i].isVoted = false;
       } else {
-        thumbsImg.src = '../assets/thumbs-up.png';  
-        votes++;        
-        storedLinksArr[i].isVoted = true;        
+        thumbsImg.src = '../assets/thumbs-up.png';
+        votes++;
+        storedLinksArr[i].isVoted = true;
       }
 
       storedLinksArr[i].votes = votes;
       var votesLbl = document.getElementById(storedLinksArr[i].source);
-      if (votes === 1) { 
-        votesLbl.innerHTML = votes + ' like';  
+      if (votes === 1) {
+        votesLbl.innerHTML = votes + ' like';
       } else {
         votesLbl.innerHTML = votes + ' likes';
       }
 
-      localStorage.setItem('Links-html', JSON.stringify(storedLinksArr));      
+      localStorage.setItem('Links-html', JSON.stringify(storedLinksArr));
       break;
     }
   }
@@ -274,22 +278,22 @@ function toggleVotes(event) {
       if (thumbsImg.src.search("assets/thumbs-up.png") !== -1 && storedVideosArr[i].isVoted === true) {
         thumbsImg.src = '../assets/thumbs-upgrey.png';
         votes--;
-        storedVideosArr[i].isVoted = false;        
+        storedVideosArr[i].isVoted = false;
       } else {
-        thumbsImg.src = '../assets/thumbs-up.png';  
-        votes++;        
-        storedVideosArr[i].isVoted = true;        
+        thumbsImg.src = '../assets/thumbs-up.png';
+        votes++;
+        storedVideosArr[i].isVoted = true;
       }
 
       storedVideosArr[i].votes = votes;
       var votesLbl = document.getElementById(storedVideosArr[i].source);
-      if (votes === 1) { 
-        votesLbl.innerHTML = votes + ' like';  
+      if (votes === 1) {
+        votesLbl.innerHTML = votes + ' like';
       } else {
         votesLbl.innerHTML = votes + ' likes';
       }
 
-      localStorage.setItem('Videos-html', JSON.stringify(storedVideosArr));  
+      localStorage.setItem('Videos-html', JSON.stringify(storedVideosArr));
       break;
     }
   }

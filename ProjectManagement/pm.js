@@ -18,11 +18,13 @@ var everythigElseArr = [
 ];
 
 // Local Storage variables
+// localStorage.removeItem('Links-git');
 // localStorage.removeItem('Links-pm');
-// localStorage.removeItem('Videos-pm');
+// localStorage.removeItem('Links-everything');
 var storedGitArr = JSON.parse(localStorage.getItem('Links-git'));
 var storedProjectManagementArr = JSON.parse(localStorage.getItem('Links-pm'));
 var storedEverthingElseArr = JSON.parse(localStorage.getItem('Links-everything'));
+
 // Constructor function to create a GIT object
 function Git(name, source, description, votes, isVoted) {
   this.name = name;
