@@ -1,6 +1,7 @@
 html, body {
   padding: 0;
   margin: 0;
+  background-color: #f3f3f3;
 }
 
 /* Nav Bar Title */
@@ -186,5 +187,5 @@ button.accordion.active:after {
 }
 
 button.accordion.active, button.accordion:hover {
-  background-color: #ccc; 
+  background-color: #ccc;
 }

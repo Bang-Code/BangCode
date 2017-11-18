@@ -7,6 +7,10 @@
     min-height: 600px;
 }
 
+li {
+  list-style: none;
+}
+
 button.accordion {
     background-color: #eee;
     color: #444;
