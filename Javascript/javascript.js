@@ -1,48 +1,62 @@
+// Navigation bar / drop down menu
+document.getElementById("dropdown").addEventListener("mouseover", toggleDropDown);
+document.getElementById("dropdown").addEventListener("mouseout", toggleDropDown);
+
+function toggleDropDown() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// logo image in the NavBar
+var img = document.getElementById('logo').addEventListener('click', returnToHomePage);
+
+function returnToHomePage() {
+  window.location = "../Landing/index.html";
+};
+
+// Back To Top functionality
+window.onscroll = function() {
+  showBackToTopButton();
+};
+
+function showBackToTopButton() {
+  if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
+    document.getElementById("myBtn").style.display = "block";
+  } else {
+    document.getElementById("myBtn").style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function scrollToTop() {
+  if (window.scrollY != 0) {
+    setTimeout(function() {
+      window.scrollTo(0, window.scrollY - 900);
+      scrollToTop();
+    }, 40);
+  }
+}
+
 // link variables
 var allLinks = [];
 var linksArr = [
-  //Git/GitHub/ATOM resources
-  ['Atlassian', 'https://www.atlassian.com/git/', 'getting git right tutorials', 8, false],
-  ['GitHub Help', 'https://help.github.com/', 'Learn Git/GitHub'],
-  ['Git-Cheat', 'www.git-tower.com/learn/', 'Quick reference for git operations', 13, false],
-  ['git ignore', 'www.gitignore.io/', 'How to use the git ignore option for security', 2, false],
-  ['Atom Documention', 'http://flight-manual.atom.io/', 'flight manual for learning ATOM', 3, false],
-  //Project Management
-  ['Trello', 'https://trello.com/', 'project tracking tool', 8, false],
-  ['Waffle.io', 'https://waffle.io/', 'Free or Paid Project Management Tool', 5, false],
-  //misc
-  ['Mark Down', 'guides.github.com/features/mastering-markdown/', 'markdown fundamentals', 4, false],
-  ['REPL.it', 'Write Code https://repl.it/', 'code writer', 19, false],
-  //Text/Font
-  ['Fun Lorem Ipsums', 'https://www.shopify.com/partners/blog/79940998-15-funny-lorem-ipsum-generators-to-shake-up-your-design-mockups', '15 funny lorem ipsum generators', 26, false],
-  ['Google Fonts', 'https://fonts.google.com/', 'All fonts you could ever dream of available for free',
-    31, false],
-  //Color picker/generator
-  ['Paletton', 'http://paletton.com/#uid=1000u0kllllaFw0g0qFqFg0w0aF', 'Color Picker', 5, false],
-  ['W3schools', 'https://www.w3schools.com/css/css_colors.asp', 'adding color to your page', 8, false],
-  ['Color-hex', 'http://www.color-hex.com/', 'HEX color picker', 11, false],
-  ['Adobe Color', 'https://color.adobe.com/create/color-wheel/', 'Adobe color picker', 1, false],
-  ['Canva', 'https://www.canva.com/color-palette/', 'Color Palette Generator', 18, false],
-  //other
-  ['Canva', 'https://www.canva.com/', 'All things web design', 10, false],
-  ['James Padolsey', 'https://j11y.io/', 'resource site', 12, false],
-  ['Pixir', 'https://pixlr.com/editor/', 'Free Online Photo Editor', 13, false],
-  ['PNG Tree', 'https://pngtree.com/', 'Free and Paid imager resources', 22, false],
-  ['Leaflets JS', 'http://leafletjs.com/index.html', 'Adding Maps', 14, false],
-  ['Google', 'https://www.google.com/', 'When all else fails', 11, false],
+  ['W3schools', 'https://www.w3schools.com/js/default.asp', 'learn Javascript', 9, false],
+  ['Mozilla Developer Network (MDN)', 'https://www.developer.mozilla.org/en-US/docs/Web/JavaScript', 'all things Javascript', 11, false],
+  ['Stackoverflow', 'https://www.stackoverflow.com/', 'Ask quesitons, post code, reviews and so much more', 10, false],
+  ['Call Me Nick', 'http://www.callmenick.com/post/basics-javascript-dom-manipulation', 'Basic JS DOM manipulation', 10, false],
+  ['JS Charts', 'www.jscharts.com', 'free chart generator', 2, false],
 ];
 // video variables
 var allVideos = [];
 var videosArr = [
-  ['LearnCode Academy', 'https://www.youtube.com/user/learncodeacademy', 'Videos about becoming a web devloper', 18, false],
-  ['Code School', 'https://www.codeschool.com/courses/discover-devtools', 'Discover DEV tools', 15, false],
+  ['Video JS', 'http://www.videojs.com/getting-started/', 'Getting Started in JS', 6, false],
+  ['FUN FUN FUNCTION', 'https://www.youtube.com/channel/UCO1cgjhGzsSYb1rsB4bFe4Q', 'Functional Programming', 20, false],
 ];
 
 // Local Storage variables
-// localStorage.removeItem('Links-pm');
-// localStorage.removeItem('Videos-pm');
-var storedLinksArr = JSON.parse(localStorage.getItem('Links-pm'));
-var storedVideosArr = JSON.parse(localStorage.getItem('Videos-pm'));
+// localStorage.removeItem('Links-Git');
+// localStorage.removeItem('Videos-Git');
+var storedLinksArr = JSON.parse(localStorage.getItem('Links-Git'));
+var storedVideosArr = JSON.parse(localStorage.getItem('Videos-Git'));
 
 // Constructor function to create a Link object
 function Link(name, source, description, votes, isVoted) {
@@ -81,13 +95,13 @@ function createVideo() {
 // Init the local storage variables
 if (storedLinksArr === null) {
   createLinks();
-  localStorage.setItem('Links-pm', JSON.stringify(allLinks));
-  storedLinksArr = JSON.parse(localStorage.getItem('Links-pm'));
+  localStorage.setItem('Links-Git', JSON.stringify(allLinks));
+  storedLinksArr = JSON.parse(localStorage.getItem('Links-Git'));
 }
 if (storedVideosArr === null) {
   createVideo();
-  localStorage.setItem('Videos-pm', JSON.stringify(allVideos));
-  storedVideosArr = JSON.parse(localStorage.getItem('Videos-pm'));
+  localStorage.setItem('Videos-Git', JSON.stringify(allVideos));
+  storedVideosArr = JSON.parse(localStorage.getItem('Videos-Git'));
 }
 
 // populate our tables
@@ -152,11 +166,11 @@ function addFunction(event) {
 
     if (isVideo === 'Yes') {
       storedVideosArr.push(new Video(name, source, description, 0, false));
-      localStorage.setItem('Videos-pm', JSON.stringify(storedVideosArr));
+      localStorage.setItem('Videos-Git', JSON.stringify(storedVideosArr));
       linkType = 'video-list';
     } else {
       storedLinksArr.push(new Link(name, source, description, 0, false));
-      localStorage.setItem('Links-pm', JSON.stringify(storedLinksArr));
+      localStorage.setItem('Links-Git', JSON.stringify(storedLinksArr));
       linkType = 'link-list';
     }
 
@@ -207,45 +221,6 @@ function resetFields() {
   description.value = '';
 }
 
-// Navigation bar / drop down menu
-document.getElementById("dropbtn").addEventListener("mouseover", toggleDropDown);
-document.getElementById("dropbtn").addEventListener("mouseout", toggleDropDown);
-document.getElementById("myDropdown").addEventListener("mouseout", toggleDropDown);
-
-function toggleDropDown() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
-// logo image in the NavBar
-var img = document.getElementById('logo').addEventListener('click', returnToHomePage);
-
-function returnToHomePage() {
-  window.location = "../Landing/index.html";
-};
-
-// Back To Top functionality
-window.onscroll = function() {
-  showBackToTopButton();
-};
-
-function showBackToTopButton() {
-  if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
-    document.getElementById("myBtn").style.display = "block";
-  } else {
-    document.getElementById("myBtn").style.display = "none";
-  }
-}
-
-// When the user clicks on the button, scroll to the top of the document
-function scrollToTop() {
-  if (window.scrollY != 0) {
-    setTimeout(function() {
-      window.scrollTo(0, window.scrollY - 900);
-      scrollToTop();
-    }, 40);
-  }
-}
-
 //accordion view of Resources
 var acc = document.getElementsByClassName("accordion");
 var k;
@@ -262,9 +237,6 @@ for (k = 0; k < acc.length; k++) {
   };
 }
 
-
-
-// testing
 function toggleVotes(event) {
   for (var i = 0; i < storedLinksArr.length; i++) {
     if (storedLinksArr[i].name === event.target.id) {
@@ -288,7 +260,7 @@ function toggleVotes(event) {
         votesLbl.innerHTML = votes + ' likes';
       }
 
-      localStorage.setItem('Links-pm', JSON.stringify(storedLinksArr));
+      localStorage.setItem('Links-Git', JSON.stringify(storedLinksArr));
       break;
     }
   }
@@ -314,7 +286,7 @@ function toggleVotes(event) {
         votesLbl.innerHTML = votes + ' likes';
       }
 
-      localStorage.setItem('Videos-pm', JSON.stringify(storedVideosArr));
+      localStorage.setItem('Videos-Git', JSON.stringify(storedVideosArr));
       break;
     }
   }

@@ -1,20 +1,58 @@
+// Navigation bar / drop down menu
+document.getElementById("dropdown").addEventListener("mouseover", toggleDropDown);
+document.getElementById("dropdown").addEventListener("mouseout", toggleDropDown);
+
+function toggleDropDown() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// logo image in the NavBar
+var img = document.getElementById('logo').addEventListener('click', returnToHomePage);
+
+function returnToHomePage() {
+  window.location = "../Landing/index.html";
+};
+
+// Back To Top functionality
+window.onscroll = function() {
+  showBackToTopButton();
+};
+
+function showBackToTopButton() {
+  if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
+    document.getElementById("myBtn").style.display = "block";
+  } else {
+    document.getElementById("myBtn").style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function scrollToTop() {
+  if (window.scrollY != 0) {
+    setTimeout(function() {
+      window.scrollTo(0, window.scrollY - 900);
+      scrollToTop();
+    }, 40);
+  }
+}
+
 // link variables
 var allLinks = [];
 var linksArr = [
   ['W3schools', 'https://www.w3schools.com/css/default.asp', 'learn CSS', 7, false],
   ['Mozilla Developer Network (MDN)', 'https://developer.mozilla.org/en-US/docs/Web/CSS', 'all things CSS', 9, false],
-  ['CSS Tricks', 'https://css-tricks.com/', 'Resources and Videos for everything CSS', 32, false],
-  ['Learn CSS Layout', 'http://learnlayout.com/', 'learning CSS fundamentals', 5, false],
-  ['Shay Howe', 'https://learn.shayhowe.com/', 'code school for HTML and CSS', 11, false],
+  ['CSS Tricks', 'https://www.css-tricks.com/', 'Resources and Videos for everything CSS', 32, false],
+  ['Learn CSS Layout', 'http://www.learnlayout.com/', 'learning CSS fundamentals', 5, false],
+  ['Shay Howe', 'https://www.learn.shayhowe.com/', 'code school for HTML and CSS', 11, false],
   ['CSS Zen Garden', 'http://www.csszengarden.com/', 'different ways CSS effects HTML', 14, false],
-  ['CSS3', 'https://css3gen.com/css-box-model/', 'learn the box model', 3, false],
+  ['CSS3', 'https://www.css3gen.com/css-box-model/', 'learn the box model', 3, false],
   ['Smashing Magazine', 'https://www.smashingmagazine.com/2007/05/css-float-theory-things-you-should-know/', 'Understanding Float therory', 17, false],
 ];
 // video variables
 var allVideos = [];
 var videosArr = [
   ['EJ Media', 'https://www.youtube.com/watch?v=qKoajPPWpmo', 'Introduction to CSS video', 7, false],
-  ['CSS crash course', 'https://www.youtube.com/watch?v=yfoY53QXEnI', 'CSS crash course for begginers', 12, false],
+  ['CSS crash course', 'https://www.youtube.com/watch?v=yfoY53QXEnI', 'CSS crash course for beginners', 12, false],
 ];
 
 // Local Storage variables
@@ -186,45 +224,6 @@ function resetFields() {
   description.value = '';
 }
 
-// Navigation bar / drop down menu
-document.getElementById("dropbtn").addEventListener("mouseover", toggleDropDown);
-document.getElementById("dropbtn").addEventListener("mouseout", toggleDropDown);
-document.getElementById("myDropdown").addEventListener("mouseout", toggleDropDown);
-
-function toggleDropDown() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
-// logo image in the NavBar
-var img = document.getElementById('logo').addEventListener('click', returnToHomePage);
-
-function returnToHomePage() {
-  window.location = "../Landing/index.html";
-};
-
-// Back To Top functionality
-window.onscroll = function() {
-  showBackToTopButton();
-};
-
-function showBackToTopButton() {
-  if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
-    document.getElementById("myBtn").style.display = "block";
-  } else {
-    document.getElementById("myBtn").style.display = "none";
-  }
-}
-
-// When the user clicks on the button, scroll to the top of the document
-function scrollToTop() {
-  if (window.scrollY != 0) {
-    setTimeout(function() {
-      window.scrollTo(0, window.scrollY - 900);
-      scrollToTop();
-    }, 40);
-  }
-}
-
 //accordion view of Resources
 var acc = document.getElementsByClassName("accordion");
 var k;
@@ -241,9 +240,6 @@ for (k = 0; k < acc.length; k++) {
   };
 }
 
-
-
-// testing
 function toggleVotes(event) {
   for (var i = 0; i < storedLinksArr.length; i++) {
     if (storedLinksArr[i].name === event.target.id) {

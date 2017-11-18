@@ -1,14 +1,54 @@
+// Navigation bar / drop down menu
+document.getElementById("dropdown").addEventListener("mouseover", toggleDropDown);
+document.getElementById("dropdown").addEventListener("mouseout", toggleDropDown);
+
+function toggleDropDown() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// logo image in the NavBar
+var img = document.getElementById('logo').addEventListener('click', returnToHomePage);
+
+function returnToHomePage() {
+  window.location = "../Landing/index.html";
+};
+
+// Back To Top functionality
+window.onscroll = function() {
+  showBackToTopButton();
+};
+
+function showBackToTopButton() {
+  if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
+    document.getElementById("myBtn").style.display = "block";
+  } else {
+    document.getElementById("myBtn").style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function scrollToTop() {
+  if (window.scrollY != 0) {
+    setTimeout(function() {
+      window.scrollTo(0, window.scrollY - 900);
+      scrollToTop();
+    }, 40);
+  }
+}
+
+
+
 // link variables
 var allLinks = [];
 var linksArr = [
   ['W3schools', 'https://www.w3schools.com/html/default.asp', 'learn HTML', 12, false],
-  ['Mozilla Developer Network (MDN)', 'https://developer.mozilla.org/en-US/docs/Web/HTML', 'all things HTML', 25, false],
-  ['HTML CSS and JS', 'http://html-css-js.com/', 'Learn HTML CSS and JS', 10, false],
-  ['Shay Howe', 'https://learn.shayhowe.com/', 'code school for HTML and CSS', 7, false],
-  ['Robert Nyman', 'https://robertnyman.com/html5/forms/input-types.html', 'HTML5 Forms', 1, false],
-  ['HTML5 Up', 'https://html5up.net/', 'learn form code in HTML', 2, false],
+  ['Mozilla Developer Network (MDN)', 'https://www.developer.mozilla.org/en-US/docs/Web/HTML', 'all things HTML', 25, false],
+  ['HTML CSS and JS', 'http://www.html-css-js.com/', 'Learn HTML CSS and JS', 10, false],
+  ['Shay Howe', 'https://www.learn.shayhowe.com/', 'code school for HTML and CSS', 7, false],
+  ['Robert Nyman', 'https://www.robertnyman.com/html5/forms/input-types.html', 'HTML5 Forms', 1, false],
+  ['HTML5 Up', 'https://www.html5up.net/', 'learn form code in HTML', 2, false],
   ['Symbols/Punctuation', 'https://www.w3schools.com/charsets/ref_utf_punctuation.asp', 'Add any symbol or punctuation to your page', 4, false],
-  ['Creative Tim', 'http://blog.creative-tim.com/tutorial/html-cheat-sheet-for-download/', 'Complete HTML cheat sheet', 9, false],
+  ['Creative Tim', 'http://www.blog.creative-tim.com/tutorial/html-cheat-sheet-for-download/', 'Complete HTML cheat sheet', 9, false],
 ];
 // video variables
 var allVideos = [];
@@ -186,45 +226,6 @@ function resetFields() {
   description.value = '';
 }
 
-// Navigation bar / drop down menu
-document.getElementById("dropbtn").addEventListener("mouseover", toggleDropDown);
-document.getElementById("dropbtn").addEventListener("mouseout", toggleDropDown);
-document.getElementById("myDropdown").addEventListener("mouseout", toggleDropDown);
-
-function toggleDropDown() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
-// logo image in the NavBar
-var img = document.getElementById('logo').addEventListener('click', returnToHomePage);
-
-function returnToHomePage() {
-  window.location = "../Landing/index.html";
-};
-
-// Back To Top functionality
-window.onscroll = function() {
-  showBackToTopButton();
-};
-
-function showBackToTopButton() {
-  if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
-    document.getElementById("myBtn").style.display = "block";
-  } else {
-    document.getElementById("myBtn").style.display = "none";
-  }
-}
-
-// When the user clicks on the button, scroll to the top of the document
-function scrollToTop() {
-  if (window.scrollY != 0) {
-    setTimeout(function() {
-      window.scrollTo(0, window.scrollY - 900);
-      scrollToTop();
-    }, 40);
-  }
-}
-
 //accordion view of Resources
 var acc = document.getElementsByClassName("accordion");
 var k;
@@ -241,9 +242,6 @@ for (k = 0; k < acc.length; k++) {
   };
 }
 
-
-
-// testing
 function toggleVotes(event) {
   for (var i = 0; i < storedLinksArr.length; i++) {
     if (storedLinksArr[i].name === event.target.id) {

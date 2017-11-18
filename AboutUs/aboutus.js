@@ -19,14 +19,11 @@ new Link('Color','https://www.w3schools.com/css/css_colors.asp','colour');
 new Link('box model','https://css3gen.com/css-box-model/','boxes');
 console.log(allLinks);
 
-// Navigation bar
-document.getElementById("dropbtn").addEventListener("mouseover", mouseOut);
-document.getElementById("dropbtn").addEventListener("mouseout", mouseOut);
+// Navigation bar / drop down menu
+document.getElementById("dropdown").addEventListener("mouseover", toggleDropDown);
+document.getElementById("dropdown").addEventListener("mouseout", toggleDropDown);
 
-// show/hide the dropdown on mouse over/out
-document.getElementById("myDropdown").addEventListener("mouseout", mouseOut);
-
-function mouseOut() {
+function toggleDropDown() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
