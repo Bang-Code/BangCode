@@ -27,7 +27,7 @@
   transition: all .2s ease-in-out;
   background-image: url("../assets/light-bulb-portrate.jpg");
 }
-/*GIT link*/
+/*Javascript link*/
 #two {
   background-image: url("../assets/pull-back-portrate.jpg");
 }
@@ -35,7 +35,7 @@
 #three {
   background-image: url("../assets/html-banner-portrate.jpg");
 }
-/*PM link*/
+/*Try...Catch link*/
 #four {
   background-image: url("../assets/web-design-portrate.jpg");
 }
@@ -48,7 +48,7 @@
 
 .cssLabel {
   color: white;
-  top: 44%;
+  top: 42%;
   line-height: 100px;
   font-family: cursive;
   font-size: 180px;
@@ -65,7 +65,7 @@
 
 #gitLabel {
   color: white;
-  top: 32%;
+  top: 40%;
   line-height: 100px;
   font-family: cursive;
   font-size: 140px;
@@ -85,7 +85,7 @@
 
 #pmLabel {
   color: white;
-  top: 38%;
+  top: 40%;
   line-height: 100px;
   font-family: cursive;
   font-size: 100px;

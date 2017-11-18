@@ -183,8 +183,13 @@ button.accordion:after {
   margin-left: 5px;
 }
 
+button.accordion:hover:after {
+  color: white;
+}  
+
 button.accordion.active:after {
   content: "\2212";
+  color: white;  
 }
 
 button.accordion.active, button.accordion:hover {

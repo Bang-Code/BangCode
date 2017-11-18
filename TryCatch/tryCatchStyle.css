@@ -37,6 +37,7 @@ button.accordion {
 
 button.accordion.active, button.accordion:hover {
   background-color: #e66a27;
+  color: white;  
 }
 
 div.panel {
