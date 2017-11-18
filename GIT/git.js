@@ -2,15 +2,17 @@
 var allLinks = [];
 var linksArr = [
   ['W3schools', 'https://www.w3schools.com/js/default.asp', 'learn Javascript', 9, false],
-  ['Mozilla Developer Network (MDN)', 'https://developer.mozilla.org/en-US/docs/Web/JavaScript', 'all things Javascript', 11, false],
-  ['Call Me Nick', 'http://callmenick.com/post/basics-javascript-dom-manipulation', 'Basic JS DOM manipulation', 10, false],
+  ['Mozilla Developer Network (MDN)', 'https://www.developer.mozilla.org/en-US/docs/Web/JavaScript', 'all things Javascript', 11, false],
+  ['Call Me Nick', 'http://www.callmenick.com/post/basics-javascript-dom-manipulation', 'Basic JS DOM manipulation', 10, false],
   ['JS Charts', 'www.jscharts.com', 'free chart generator', 2, false],
 ];
 // video variables
-var allVideos = [];
+var allVideos = [
+];
+
 var videosArr = [
-  ['Video JS', 'http://videojs.com/getting-started/', 'Getting Started in JS', 6, false],
-  ['FUN FUN FUNCTION', 'https://www.youtube.com/channel/UCO1cgjhGzsSYb1rsB4bFe4Q', 'Functional Programming', 20, false],
+  ['Video JS', 'http://www.videojs.com/getting-started/', 'Getting Started in JS', 6, false],
+  ['FUN FUN FUNCTION', 'https://www.youtube.com/channel/UCO1cgjhGzsSYb1rsB4bFe4Q', 'Functional Programming Video Tutorials', 20, false],
 ];
 
 // Local Storage variables

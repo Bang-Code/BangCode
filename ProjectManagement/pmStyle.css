@@ -12,6 +12,14 @@
   line-height: 100px;
 }
 
+body {
+  background-color: #f3f3f3;
+}
+
+li {
+  list-style: none;
+}
+
 button.accordion {
     background-color: #eee;
     color: #444;
@@ -34,7 +42,7 @@ button.accordion.active, button.accordion:hover {
 div.panel {
   padding: 0 18px;
   display: none;
-  background-color: white;
+  background-color: #f3f3f3;
 }
 
 fieldset {

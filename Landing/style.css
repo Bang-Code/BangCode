@@ -164,7 +164,7 @@ html, body {
   margin-right: auto;
   position: relative;
   z-index: 10;
-  background-color: white;
+  background-color: #f3f3f3;
 }
 
 .accordian-menu {
