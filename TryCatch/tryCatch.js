@@ -44,18 +44,38 @@ var gitArr = [
   ['GIT Tower', 'https://www.git-tower.com/learn/', ' Git and Version Control', 6, false],
   ['Git Ignore', 'https://www.gitignore.io/', ' adding security to your web page', 15, false],
 ];
+
 // PM variables
 var allProjectManagement = [
 ];
 
 var projectManagementArr = [
+  ['Trello', 'https://trello.com/', 'project tracking tool', 8, false],
+  ['Waffle.io', 'https://waffle.io/', 'Free or Paid Project Management Tool', 5, false],
   ['Code School', 'https://www.codeschool.com/courses/discover-devtools', 'Discover DEV tools', 4, false]
 ];
+
 //Everything Else variables
 var allEverythingElse = [];
 var everythigElseArr = [
-  []
+  ['Mark Down', 'guides.github.com/features/mastering-markdown/', 'markdown fundamentals', 4, false],
+  ['REPL.it', 'Write Code https://repl.it/', 'code writer', 19, false],
+  ['Fun Lorem Ipsums', 'https://www.shopify.com/partners/blog/79940998-15-funny-lorem-ipsum-generators-to-shake-up-your-design-mockups', '15 funny lorem ipsum generators', 26, false],
+  ['Google Fonts', 'https://fonts.google.com/', 'All fonts you could ever dream of available for free',
+    31, false],
+  ['Paletton', 'http://paletton.com/#uid=1000u0kllllaFw0g0qFqFg0w0aF', 'Color Picker', 5, false],
+  ['W3schools', 'https://www.w3schools.com/css/css_colors.asp', 'adding color to your page', 8, false],
+  ['Color-hex', 'http://www.color-hex.com/', 'HEX color picker', 11, false],
+  ['Adobe Color', 'https://color.adobe.com/create/color-wheel/', 'Adobe color picker', 1, false],
+  ['Canva', 'https://www.canva.com/color-palette/', 'Color Palette Generator', 18, false],
+  ['Canva', 'https://www.canva.com/', 'All things web design', 10, false],
+  ['James Padolsey', 'https://j11y.io/', 'resource site', 12, false],
+  ['Pixir', 'https://pixlr.com/editor/', 'Free Online Photo Editor', 13, false],
+  ['PNG Tree', 'https://pngtree.com/', 'Free and Paid imager resources', 22, false],
+  ['Leaflets JS', 'http://leafletjs.com/index.html', 'Adding Maps', 14, false],
+  ['Google', 'https://www.google.com/', 'When all else fails', 11, false]
 ];
+
 
 // Local Storage variables
 // localStorage.removeItem('Links-git');
@@ -74,7 +94,6 @@ function Git(name, source, description, votes, isVoted) {
   this.isVotes = isVoted;
   allGit.push(this);
 }
-
 // Constructor function to create a PM object
 function ProjectManagement(name, source, description, votes, isVoted) {
   this.name = name;
@@ -93,6 +112,7 @@ function EverythingElse(name, source, description, votes, isVoted) {
   this.isVotes = isVoted;
   allEverythingElse.push(this);
 }
+
 // populate our git array object
 function createGit() {
   for (var i = 0; i < gitArr.length; i++) {
@@ -108,8 +128,8 @@ function createProjectManagement() {
 }
 //populate everything else array object
 function createEverythingElse() {
-  for (var j = 0; j < everythigElseArr.length; j++) {
-    new EverythingElse(everythigElseArr[j][0], everythigElseArr[j][1], everythigElseArr[j][2], everythigElseArr[j][3], everythigElseArr[j][4]);
+  for (var k = 0; k < everythigElseArr.length; k++) {
+    new EverythingElse(everythigElseArr[k][0], everythigElseArr[k][1], everythigElseArr[k][2], everythigElseArr[k][3], everythigElseArr[k][4]);
   }
 }
 
@@ -125,10 +145,11 @@ if (storedProjectManagementArr === null) {
   storedProjectManagementArr = JSON.parse(localStorage.getItem('Links-pm'));
 }
 if (storedEverthingElseArr === null) {
-  createProjectManagement();
+  createEverythingElse();
   localStorage.setItem('Links-everything', JSON.stringify(allEverythingElse));
   storedEverthingElseArr = JSON.parse(localStorage.getItem('Links-everything'));
 }
+
 // populate our tables
 function addElementsToTable(tableName, linksArray) {
   var ulEl = document.getElementById(tableName);
@@ -199,7 +220,7 @@ function addFunction(event) {
       storedProjectManagementArr.push(new ProjectManagement(name, source, description, 0, false));
       localStorage.setItem('Links-pm', JSON.stringify(storedProjectManagementArr));
       linkType = 'project-list';
-    }else {
+    } else {
       storedEverthingElseArr.push(new EverythingElse(name, source, description, 0, false));
       localStorage.setItem('Links-everything', JSON.stringify(storedEverthingElseArr));
       linkType = 'everything-list';

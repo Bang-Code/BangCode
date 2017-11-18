@@ -42,37 +42,39 @@
     <div class="arrow-up"></div>
   </button>
 
-  <div class="main-Content">
-    <button class="accordion">Links</button>
-    <div class="panel" class="links">
-      <ul id="link-list"></ul>
-    </div>
+  <div id="container">
+    <div class="main-Content">
+      <button class="accordion">Links</button>
+      <div class="panel" class="links">
+        <ul id="link-list"></ul>
+      </div>
 
-    <button class="accordion">Videos</button>
-    <div class="panel" class="videos">
-      <ul id="video-list"></ul>
-    </div>
+      <button class="accordion">Videos</button>
+      <div class="panel" class="videos">
+        <ul id="video-list"></ul>
+      </div>
 
-    <button class="accordion">Add a new resource</button>
-    <div class="pannel" id="add link">
-      <form id="user-input">
-        <fieldset>
-          <label for="name">Name</label>
-          <input id="name" name="name" type="text" value="">
+      <button class="accordion">Add a new resource</button>
+      <div class="pannel" id="add link">
+        <form id="user-input">
+          <fieldset>
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" value="">
 
-          <label for="source">URL</label>
-          <input id="source" name="name" type="text" value="">
+            <label for="source">URL</label>
+            <input id="source" name="name" type="text" value="">
 
-          <p>Add a short description</p>
-          <textarea id="description" name="description" rows="8" cols="80"></textarea>
-          <p>Is this a video?</p>
-          <select id="yes-no" name="type">
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </select>
-          <button id="submitbutton" type="submit" />Add Resource</button>
-        </fieldset>
-      </form>
+            <p>Add a short description</p>
+            <textarea id="description" name="description" rows="8" cols="80"></textarea>
+            <p>Is this a video?</p>
+            <select id="yes-no" name="type">
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+            <button id="submitbutton" type="submit" />Add Resource</button>
+          </fieldset>
+        </form>
+      </div>
     </div>
   </div>
 

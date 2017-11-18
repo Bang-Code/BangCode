@@ -45,3 +45,18 @@ fieldset {
   position: relative;
   z-index: 10;
 }
+
+#container {
+  position: relative;
+  z-index: 10;
+  background-color: #f3f3f3;
+}
+
+li:nth-child(2n) {
+  padding-left: 20px;
+  font-style: italic;
+}
+
+a:hover {
+  color: #e66a27;
+}
